@@ -57,7 +57,7 @@ interface CheckResult {
 }
 
 async function main(): Promise<void> {
-  console.log('Coverage Verification — Dutch Standards MCP');
+  console.log('Coverage Verification — French Standards MCP');
   console.log('============================================');
 
   const checks: CheckResult[] = [];

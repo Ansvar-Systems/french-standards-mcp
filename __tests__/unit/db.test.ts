@@ -5,7 +5,7 @@ import { getMetadata, getFrameworkCount, getControlCount } from '../../src/db.js
 describe('Database layer', () => {
   it('opens the database and reads metadata', () => {
     const metadata = getMetadata();
-    expect(metadata.mcp_name).toBe('Dutch Standards MCP');
+    expect(metadata.mcp_name).toBe('French Standards MCP');
     expect(metadata.category).toBe('domain_intelligence');
     expect(metadata.schema_version).toBeDefined();
   });

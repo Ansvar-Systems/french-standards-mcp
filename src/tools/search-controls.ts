@@ -121,7 +121,7 @@ export function handleSearchControls(args: {
   lines.push('|----|---------|-------|-----------|----------|-------|');
 
   for (const row of rows) {
-    // Decision 1: EN preferred if available, fall back to NL (Dutch-only controls never hidden)
+    // Decision 1: EN preferred if available, fall back to FR (French-only controls never hidden)
     const displayTitle = useEnglish
       ? (row.title ?? row.title_nl ?? '')
       : (row.title_nl ?? row.title ?? '');

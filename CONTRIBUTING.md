@@ -1,12 +1,12 @@
 # Contributing
 
-Thank you for your interest in contributing to dutch-standards-mcp.
+Thank you for your interest in contributing to french-standards-mcp.
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/Ansvar-Systems/dutch-standards-mcp.git
-cd dutch-standards-mcp
+git clone https://github.com/Ansvar-Systems/french-standards-mcp.git
+cd french-standards-mcp
 npm install
 node --import tsx scripts/seed-test-db.ts
 npm test

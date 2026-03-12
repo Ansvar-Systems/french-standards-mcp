@@ -6,7 +6,7 @@ describe('response-meta', () => {
   it('returns _meta with disclaimer and data_age', () => {
     const meta = responseMeta();
     expect(meta._meta.disclaimer).toBe(
-      'Reference tool only. Not professional advice. Verify against authoritative sources.'
+      'Reference tool only. Not professional advice. Verify against authoritative ANSSI, CNIL, and French government sources.'
     );
     expect(meta._meta.data_age).toBeDefined();
   });

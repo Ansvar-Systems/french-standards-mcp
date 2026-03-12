@@ -1,13 +1,13 @@
-# Dutch Standards MCP
+# French Standards MCP
 
-[![npm version](https://img.shields.io/npm/v/@ansvar/dutch-standards-mcp)](https://www.npmjs.com/package/@ansvar/dutch-standards-mcp)
-[![CI](https://github.com/Ansvar-Systems/dutch-standards-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/Ansvar-Systems/dutch-standards-mcp/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@ansvar/french-standards-mcp)](https://www.npmjs.com/package/@ansvar/french-standards-mcp)
+[![CI](https://github.com/Ansvar-Systems/french-standards-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/Ansvar-Systems/french-standards-mcp/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-ansvar.ai%2Fmcp-blue)](https://ansvar.ai/mcp)
 
-Structured access to Dutch government cybersecurity standards: BIO2, DNB Good Practice Informatiebeveiliging, NEN 7510/7512/7513, NCSC-NL web application and TLS guidelines, DigiD Normenkader, and Logius API Design Rules. Bilingual Dutch/English with FTS search, ISO 27002:2022 cross-references, and sector-based filtering.
+Structured access to French government cybersecurity standards: ANSSI RGS, ANSSI Guide d'hygiene informatique, SecNumCloud, PGSSI-S, CNIL guide de la securite des donnees personnelles, and HDS (Hebergeurs de Donnees de Sante). Bilingual French/English with FTS search, ISO 27002:2022 cross-references, and sector-based filtering.
 
-Part of the [Ansvar MCP Network](https://ansvar.ai/mcp) — specialist MCP servers for compliance and security intelligence.
+Part of the [Ansvar MCP Network](https://ansvar.ai/mcp) -- specialist MCP servers for compliance and security intelligence.
 
 ---
 
@@ -20,8 +20,8 @@ Add to your MCP client config:
 ```json
 {
   "mcpServers": {
-    "dutch-standards": {
-      "url": "https://dutch-standards-mcp.vercel.app/mcp"
+    "french-standards": {
+      "url": "https://french-standards-mcp.vercel.app/mcp"
     }
   }
 }
@@ -29,41 +29,41 @@ Add to your MCP client config:
 
 ### Local (stdio via npx)
 
-**Claude Desktop** — edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+**Claude Desktop** -- edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "dutch-standards": {
+    "french-standards": {
       "command": "npx",
-      "args": ["-y", "@ansvar/dutch-standards-mcp"]
+      "args": ["-y", "@ansvar/french-standards-mcp"]
     }
   }
 }
 ```
 
-**Cursor** — edit `.cursor/mcp.json` in your project:
+**Cursor** -- edit `.cursor/mcp.json` in your project:
 
 ```json
 {
   "mcpServers": {
-    "dutch-standards": {
+    "french-standards": {
       "command": "npx",
-      "args": ["-y", "@ansvar/dutch-standards-mcp"]
+      "args": ["-y", "@ansvar/french-standards-mcp"]
     }
   }
 }
 ```
 
-**VS Code / GitHub Copilot** — add to `.vscode/mcp.json`:
+**VS Code / GitHub Copilot** -- add to `.vscode/mcp.json`:
 
 ```json
 {
   "servers": {
-    "dutch-standards": {
+    "french-standards": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@ansvar/dutch-standards-mcp"]
+      "args": ["-y", "@ansvar/french-standards-mcp"]
     }
   }
 }
@@ -75,15 +75,14 @@ Add to your MCP client config:
 
 | Source | Authority | Items | Language | Refresh |
 |--------|-----------|-------|----------|---------|
-| BIO2 (Baseline Informatiebeveiliging Overheid) | CIP/BZK | ~93 controls | NL+EN | Annual |
-| DNB Good Practice Informatiebeveiliging 2023 | DNB | ~58 controls | NL+EN | Annual |
-| NEN 7510:2017 / NEN 7512:2022 / NEN 7513:2023 | NEN | ~200 requirements | NL | 5-year cycle |
-| NCSC-NL ICT Security Guidelines for Web Applications | NCSC-NL | ~200 requirements | NL | Annual |
-| DigiD ICT Security Assessment Normenkader 3.0 | Logius | 21 norms | NL | Annual |
-| NCSC-NL Security Guidelines for TLS 2.1 | NCSC-NL | ~50 recommendations | NL+EN | Annual |
-| Logius NLGov REST API Design Rules 2.0 | Logius | ~80 rules | NL+EN | Monthly |
+| ANSSI RGS (Referentiel General de Securite) | ANSSI | 86 controls | FR+EN | Annual |
+| ANSSI Guide d'hygiene informatique | ANSSI | 55 controls | FR+EN | Annual |
+| SecNumCloud (Prestataires de services d'informatique en nuage) | ANSSI | 127 controls | FR+EN | Annual |
+| PGSSI-S (Politique Generale de Securite des Systemes d'Information de Sante) | ANS/ANSSI | 41 controls | FR+EN | Annual |
+| CNIL Guide de la securite des donnees personnelles | CNIL | 54 controls | FR+EN | Annual |
+| HDS (Hebergeurs de Donnees de Sante) | ANS | 38 controls | FR+EN | Annual |
 
-**Total:** ~700 controls and requirements across 7 frameworks.
+**Total:** 401 controls across 6 frameworks.
 
 For full coverage details, see [COVERAGE.md](COVERAGE.md).
 
@@ -93,15 +92,13 @@ For full coverage details, see [COVERAGE.md](COVERAGE.md).
 
 | Gap | Status |
 |-----|--------|
-| TIBER-NL (financial sector red-team framework) | Not planned — methodology document, not a control catalog |
-| VIR-BI (classified information) | Not planned — state secrets regime, not publicly available |
-| ENSIA (municipal audit framework) | Not planned — audit framework, not a control standard |
-| Cyberbeveiligingswet (NIS2 implementation) | Planned — law not yet in force as of 2026-03-12 |
-| BRP and eHerkenning requirements | Planned for v0.2 |
-| NEN full normative text | Excluded — commercial NEN license required |
-| ISO/IEC 27001:2022 full text | Excluded — commercial ISO license; ISO cross-references available via `get_iso_mapping` |
+| ANSSI EBIOS Risk Manager | Not planned -- risk assessment methodology, not a control catalog |
+| ANSSI PASSI (prestataires d'audit) | Not planned -- audit provider qualification, not a control framework |
+| Loi de Programmation Militaire (LPM) OIV requirements | Planned -- requires scoping of sector-specific annexes |
+| NIS2 French transposition | Planned -- law not yet fully transposed as of 2026-03-12 |
+| ISO/IEC 27001:2022 full text | Excluded -- commercial ISO license; ISO cross-references available via `get_iso_mapping` |
 
-For the complete gap list, see [COVERAGE.md — What's NOT Included](COVERAGE.md#whats-not-included).
+For the complete gap list, see [COVERAGE.md -- What's NOT Included](COVERAGE.md#whats-not-included).
 
 ---
 
@@ -109,13 +106,13 @@ For the complete gap list, see [COVERAGE.md — What's NOT Included](COVERAGE.md
 
 | Tool | Category | Description |
 |------|----------|-------------|
-| `search_controls` | Search | Full-text search across all 7 frameworks. Returns controls ranked by FTS5 relevance. |
+| `search_controls` | Search | Full-text search across all 6 frameworks. Returns controls ranked by FTS5 relevance. |
 | `search_by_sector` | Search | Returns frameworks for a sector (`government`, `healthcare`, `finance`, etc.), optionally filtered by keyword. |
 | `get_control` | Lookup | Full record for a single control: bilingual description, implementation guidance, ISO mapping. |
 | `get_framework` | Lookup | Metadata for a framework: issuing body, version, control count, category breakdown. |
-| `list_controls` | Lookup | All controls in a framework, filterable by category and BBN level. Paginated. |
-| `compare_controls` | Comparison | Side-by-side comparison of the same topic across 2–4 frameworks. |
-| `get_iso_mapping` | Comparison | All Dutch controls mapped to a given ISO 27002:2022 control reference. |
+| `list_controls` | Lookup | All controls in a framework, filterable by category. Paginated. |
+| `compare_controls` | Comparison | Side-by-side comparison of the same topic across 2-4 frameworks. |
+| `get_iso_mapping` | Comparison | All French controls mapped to a given ISO 27002:2022 control reference. |
 | `list_frameworks` | Meta | Lists all frameworks in the database with summary stats. |
 | `about` | Meta | Server version, build date, and coverage statistics. |
 | `list_sources` | Meta | Data provenance: authority, standard name, retrieval method, license for each source. |
@@ -129,13 +126,12 @@ For full parameter documentation, return formats, and examples, see [TOOLS.md](T
 
 | Source | Last Refresh | Refresh Schedule |
 |--------|-------------|-----------------|
-| BIO2 | 2026-03-12 | Annual |
-| DNB Good Practice IB | 2026-03-12 | Annual |
-| NEN 7510/7512/7513 | 2026-03-12 | 5-year cycle |
-| NCSC-NL Web App Guidelines | 2026-03-12 | Annual |
-| DigiD Normenkader | 2026-03-12 | Annual |
-| NCSC-NL TLS Guidelines | 2026-03-12 | Annual |
-| Logius API Design Rules | 2026-03-12 | Monthly |
+| ANSSI RGS | 2026-03-12 | Annual |
+| ANSSI Guide d'hygiene informatique | 2026-03-12 | Annual |
+| SecNumCloud | 2026-03-12 | Annual |
+| PGSSI-S | 2026-03-12 | Annual |
+| CNIL Guide securite | 2026-03-12 | Annual |
+| HDS | 2026-03-12 | Annual |
 
 The `ingest.yml` workflow runs automatically on the most frequent source schedule. The `check-updates.yml` workflow runs daily and creates a GitHub issue if any source is overdue.
 
@@ -162,18 +158,17 @@ This repository runs 6-layer automated security scanning on every push and weekl
 
 **THIS TOOL IS NOT PROFESSIONAL ADVICE.**
 
-This MCP provides structured access to Dutch cybersecurity standards sourced from authoritative publications. It is provided for informational and research purposes only.
+This MCP provides structured access to French cybersecurity standards sourced from authoritative publications. It is provided for informational and research purposes only.
 
 - Verify critical compliance decisions against the original standards
-- Data is a snapshot — sources update, and there may be a delay between upstream changes and database refresh
-- NEN 7510/7512/7513 content is limited to what is publicly available; full normative text requires a NEN license
+- Data is a snapshot -- sources update, and there may be a delay between upstream changes and database refresh
 - See [DISCLAIMER.md](DISCLAIMER.md) for the full disclaimer and no-warranty statement
 
 ---
 
 ## Ansvar MCP Network
 
-This server is part of the [Ansvar MCP Network](https://ansvar.ai/mcp) — 149 specialist MCP servers covering legislation, compliance frameworks, and cybersecurity standards.
+This server is part of the [Ansvar MCP Network](https://ansvar.ai/mcp) -- 149 specialist MCP servers covering legislation, compliance frameworks, and cybersecurity standards.
 
 | Category | Servers | Coverage |
 |----------|---------|----------|
@@ -190,15 +185,15 @@ Browse the full directory at [ansvar.ai/mcp](https://ansvar.ai/mcp).
 
 ### Branch strategy
 
-`feature-branch → PR to dev → verify on dev → PR to main → deploy`
+`feature-branch -> PR to dev -> verify on dev -> PR to main -> deploy`
 
 Never push directly to `main`. `main` triggers npm publish and Vercel deployment.
 
 ### Setup
 
 ```bash
-git clone https://github.com/Ansvar-Systems/dutch-standards-mcp.git
-cd dutch-standards-mcp
+git clone https://github.com/Ansvar-Systems/french-standards-mcp.git
+cd french-standards-mcp
 npm install
 npm run build
 npm test
@@ -207,7 +202,7 @@ npm test
 ### Ingestion
 
 ```bash
-# Full pipeline: fetch → diff → build DB → update coverage
+# Full pipeline: fetch -> diff -> build DB -> update coverage
 npm run ingest:full
 
 # Individual steps
@@ -241,11 +236,11 @@ npm run coverage:verify  # Gate 6: coverage consistency
 
 | Source | License |
 |--------|---------|
-| BIO2 (MinBZK GitHub) | CC0-1.0 |
-| DNB Good Practice IB | Public sector publication |
-| NEN 7510/7512/7513 | NEN standard (extracted reference data only) — see [NEN terms](https://www.nen.nl/en/terms-of-use) |
-| NCSC-NL guidelines | CC BY 4.0 |
-| DigiD Normenkader | Public sector publication |
-| Logius API Design Rules | CC BY 4.0 |
+| ANSSI RGS | Public sector publication (ssi.gouv.fr) |
+| ANSSI Guide d'hygiene informatique | Public sector publication (ssi.gouv.fr) |
+| SecNumCloud | Public sector publication (ssi.gouv.fr) |
+| PGSSI-S | Public sector publication (esante.gouv.fr) |
+| CNIL Guide securite | Public sector publication (cnil.fr) |
+| HDS | Public sector publication (esante.gouv.fr) |
 
-All data is extracted from publicly available or licensed authoritative publications. Zero AI-generated content in the database. See [sources.yml](sources.yml) for complete provenance.
+All data is extracted from publicly available authoritative publications. Zero AI-generated content in the database. See [sources.yml](sources.yml) for complete provenance.

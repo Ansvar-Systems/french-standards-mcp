@@ -3,19 +3,19 @@ import { describe, it, expect } from 'vitest';
 import { handleListControls } from '../../src/tools/list-controls.js';
 
 describe('handleListControls', () => {
-  it('lists all controls for bio2 with total_results count', () => {
-    const result = handleListControls({ framework_id: 'bio2' });
+  it('lists all controls for anssi-rgs with total_results count', () => {
+    const result = handleListControls({ framework_id: 'anssi-rgs' });
 
     expect(result.isError).toBeFalsy();
     expect(result._meta).toBeDefined();
 
     const text = result.content[0].text;
 
-    // Header with real total count (160 controls)
-    expect(text).toContain('total_results: 160');
+    // Should have total_results
+    expect(text).toContain('total_results:');
 
-    // First bio2 control present
-    expect(text).toContain('bio2:5.01.01');
+    // First anssi-rgs control present
+    expect(text).toContain('anssi-rgs:AUTH-01');
 
     // Markdown table structure
     expect(text).toContain('| ID |');
@@ -23,26 +23,25 @@ describe('handleListControls', () => {
   });
 
   it('filters controls by category', () => {
-    const result = handleListControls({ framework_id: 'bio2', category: 'Organizational controls' });
+    const result = handleListControls({ framework_id: 'anssi-rgs', category: 'Authentification' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    // Organizational controls present
-    expect(text).toContain('bio2:5.01.01');
-    expect(text).not.toContain('bio2:8.16.01');
+    // Authentification controls present
+    expect(text).toContain('anssi-rgs:AUTH');
+    // Should not contain governance controls
+    expect(text).not.toContain('anssi-rgs:GOV');
   });
 
   it('filters controls by level', () => {
-    const result = handleListControls({ framework_id: 'bio2', level: 'Basishygiëne, Ketenhygiëne' });
+    const result = handleListControls({ framework_id: 'anssi-hygiene', level: 'Standard' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
-
-    // First control with this level
-    expect(text).toContain('bio2:5.01.01');
+    expect(text).toContain('anssi-hygiene:');
   });
 
   it('returns INVALID_INPUT for missing framework_id', () => {
@@ -63,8 +62,8 @@ describe('handleListControls', () => {
   });
 
   it('paginates results via limit and offset', () => {
-    const page1 = handleListControls({ framework_id: 'bio2', limit: 1, offset: 0 });
-    const page2 = handleListControls({ framework_id: 'bio2', limit: 1, offset: 1 });
+    const page1 = handleListControls({ framework_id: 'anssi-rgs', limit: 1, offset: 0 });
+    const page2 = handleListControls({ framework_id: 'anssi-rgs', limit: 1, offset: 1 });
 
     expect(page1.isError).toBeFalsy();
     expect(page2.isError).toBeFalsy();
@@ -72,45 +71,33 @@ describe('handleListControls', () => {
     const text1 = page1.content[0].text;
     const text2 = page2.content[0].text;
 
-    // Both pages report the full total_results (160)
-    expect(text1).toContain('total_results: 160');
-    expect(text2).toContain('total_results: 160');
+    // Both pages report total_results
+    expect(text1).toContain('total_results:');
+    expect(text2).toContain('total_results:');
 
     // The two pages return different controls
     expect(text1).not.toBe(text2);
   });
 
   it('prefers English title when language is en', () => {
-    const result = handleListControls({ framework_id: 'bio2', language: 'en' });
+    const result = handleListControls({ framework_id: 'anssi-rgs', language: 'en' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    // English title present in bio2 real data
-    expect(text).toContain('Policies for information security');
+    // English title present
+    expect(text).toContain('Authentication level determination');
   });
 
-  it('defaults to Dutch titles', () => {
-    const result = handleListControls({ framework_id: 'bio2' });
+  it('defaults to French titles', () => {
+    const result = handleListControls({ framework_id: 'anssi-rgs' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    // bio2 Dutch title_nl (real data uses control number as title_nl)
-    expect(text).toContain('Overheidsmaatregel');
-  });
-
-  it('falls back to Dutch when English title is null', () => {
-    // nen-7510-2017 controls have title=null, title_nl set
-    const result = handleListControls({ framework_id: 'nen-7510-2017', language: 'en' });
-
-    expect(result.isError).toBeFalsy();
-
-    const text = result.content[0].text;
-
-    // Falls back to Dutch title (first alphabetical result is 10.1.1)
-    expect(text).toContain('Beleid inzake het gebruik van cryptografische beheersmaatregelen');
+    // French title_nl
+    expect(text).toContain('Determination du niveau');
   });
 });

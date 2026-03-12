@@ -21,5 +21,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/ansvar-systems/dutch-standards-mcp:latest
-            ghcr.io/ansvar-systems/dutch-standards-mcp:${{ github.sha }}
+            ghcr.io/ansvar-systems/french-standards-mcp:latest
+            ghcr.io/ansvar-systems/french-standards-mcp:${{ github.sha }}

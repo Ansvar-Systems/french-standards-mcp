@@ -17,60 +17,52 @@ interface SourceEntry {
 
 const FALLBACK_SOURCES: SourceEntry[] = [
   {
-    id: 'BIO2',
-    authority: 'Nationaal Cyber Security Centrum (NCSC)',
-    name: 'Baseline Informatiebeveiliging Overheid 2.0',
-    retrieval_method: 'Static download (PDF/HTML)',
-    license: 'CC BY 4.0',
-    url: 'https://bio-overheid.nl',
-  },
-  {
-    id: 'DNB',
-    authority: 'De Nederlandsche Bank (DNB)',
-    name: 'Good Practice Informatiebeveiliging',
+    id: 'ANSSI-RGS',
+    authority: 'Agence nationale de la securite des systemes d\'information (ANSSI)',
+    name: 'Referentiel General de Securite (RGS) v2.0',
     retrieval_method: 'Static download (PDF)',
-    license: 'Public document',
-    url: 'https://www.dnb.nl',
+    license: 'Public sector publication',
+    url: 'https://www.ssi.gouv.fr/entreprise/reglementation/confiance-numerique/le-referentiel-general-de-securite-rgs/',
   },
   {
-    id: 'NEN',
-    authority: 'NEN (Nederlands Normalisatie-instituut)',
-    name: 'NEN 7510 / NEN-ISO/IEC 27001',
-    retrieval_method: 'Licensed extract (public summaries)',
-    license: 'NEN license (paid standard)',
-    url: 'https://www.nen.nl',
-  },
-  {
-    id: 'NCSC-NL',
-    authority: 'Nationaal Cyber Security Centrum',
-    name: 'NCSC-NL Security Guidelines',
-    retrieval_method: 'GitHub / static download',
-    license: 'CC BY 4.0',
-    url: 'https://github.com/NCSC-NL',
-  },
-  {
-    id: 'Logius',
-    authority: 'Logius',
-    name: 'DigiD / BRP / eHerkenning security requirements',
-    retrieval_method: 'Static download (HTML/PDF)',
-    license: 'Public document',
-    url: 'https://logius.nl',
-  },
-  {
-    id: 'IND',
-    authority: 'Inspectie JenV / IND',
-    name: 'IND informatiebeveiliging requirements',
+    id: 'ANSSI-Hygiene',
+    authority: 'Agence nationale de la securite des systemes d\'information (ANSSI)',
+    name: 'Guide d\'hygiene informatique',
     retrieval_method: 'Static download (PDF)',
-    license: 'Public document',
-    url: 'https://ind.nl',
+    license: 'Public sector publication',
+    url: 'https://www.ssi.gouv.fr/guide/guide-dhygiene-informatique/',
   },
   {
-    id: 'ENISA',
-    authority: 'European Union Agency for Cybersecurity (ENISA)',
-    name: 'ENISA Good Practices / NIS2 guidance',
+    id: 'SecNumCloud',
+    authority: 'Agence nationale de la securite des systemes d\'information (ANSSI)',
+    name: 'Referentiel SecNumCloud v3.2',
+    retrieval_method: 'Static download (PDF)',
+    license: 'Public sector publication',
+    url: 'https://www.ssi.gouv.fr/entreprise/qualifications/prestataires-de-services-de-confiance-qualifies/prestataires-de-service-dinformatique-en-nuage-secnumcloud/',
+  },
+  {
+    id: 'PGSSI-S',
+    authority: 'Agence du Numerique en Sante (ANS)',
+    name: 'Politique Generale de Securite des Systemes d\'Information de Sante (PGSSI-S)',
+    retrieval_method: 'Static download (PDF)',
+    license: 'Public sector publication',
+    url: 'https://esante.gouv.fr/produits-services/pgssi-s',
+  },
+  {
+    id: 'CNIL',
+    authority: 'Commission Nationale de l\'Informatique et des Libertes (CNIL)',
+    name: 'Guide de la securite des donnees personnelles',
     retrieval_method: 'Static download (PDF/HTML)',
-    license: 'CC BY 4.0',
-    url: 'https://www.enisa.europa.eu',
+    license: 'Public sector publication',
+    url: 'https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles',
+  },
+  {
+    id: 'HDS',
+    authority: 'Agence du Numerique en Sante (ANS)',
+    name: 'Certification Hebergeurs de Donnees de Sante (HDS)',
+    retrieval_method: 'Static download (PDF)',
+    license: 'Public sector publication',
+    url: 'https://esante.gouv.fr/produits-services/hds',
   },
 ];
 
@@ -80,12 +72,7 @@ export function handleListSources() {
   const sourcesPath = join(__dirname, '..', '..', 'sources.yml');
   if (existsSync(sourcesPath)) {
     try {
-      // Parse simple YAML list — avoid a YAML dependency by using basic parsing
-      // Full YAML parsing would require a dependency; for now use fallback if file exists but let it override
       const raw = readFileSync(sourcesPath, 'utf-8');
-      // If the file exists, it's used as a signal that sources were customised.
-      // A full YAML parser is not available without adding a dependency, so we
-      // use the fallback list but note it was found.
       void raw; // file read but not parsed without yaml dep
     } catch {
       // Ignore read errors — use fallback
@@ -97,7 +84,7 @@ export function handleListSources() {
   lines.push('## Data Sources');
   lines.push('');
   lines.push(
-    'This MCP server aggregates Dutch and EU cybersecurity standards from the following authoritative sources:'
+    'This MCP server aggregates French cybersecurity standards from the following authoritative sources:'
   );
   lines.push('');
   lines.push('| ID | Authority | Standard / Document | Retrieval method | License |');
@@ -112,7 +99,7 @@ export function handleListSources() {
   lines.push(`**Total sources:** ${sources.length}`);
   lines.push('');
   lines.push(
-    '> All data is extracted from public or licensed authoritative documents. ' +
+    '> All data is extracted from public authoritative documents published by ANSSI, CNIL, and ANS. ' +
     'This tool is a reference aid — verify critical compliance decisions against the originals.'
   );
 

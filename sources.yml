@@ -1,196 +1,130 @@
 schema_version: "1.0"
-mcp_name: "Dutch Standards MCP"
+mcp_name: "French Standards MCP"
 category: "domain_intelligence"
 
 sources:
-  - name: "BIO2 (Baseline Informatiebeveiliging Overheid)"
-    authority: "CIP/BZK"
-    official_url: "https://bio-overheid.nl"
-    api_url: "https://github.com/MinBZK/Baseline-Informatiebeveiliging-Overheid"
-    retrieval_method: "GIT_CLONE"
-    format: "Markdown/ReSpec"
+  - name: "ANSSI RGS (Referentiel General de Securite)"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/entreprise/reglementation/confiance-numerique/le-referentiel-general-de-securite-rgs/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
     authentication: "none"
     update_frequency: "annual"
     version: "2.0"
-    effective_date: "2024-01-01"
+    effective_date: "2014-06-24"
     license:
-      type: "CC0-1.0"
-      url: "https://github.com/MinBZK/Baseline-Informatiebeveiliging-Overheid/blob/main/LICENSE"
-      summary: "Public domain — no restrictions on use"
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
     coverage:
-      scope: "Government-wide baseline controls (BBN1/2/3)"
-      version: "BIO 2.0"
-      item_count: 160
+      scope: "Mandatory security framework for French government information systems"
+      version: "RGS v2.0"
+      item_count: 86
     languages:
-      - "nl"
-      - "en"
+      - "fr"
 
-  - name: "DNB Good Practice Information Security 2023"
-    authority: "DNB"
-    official_url: "https://www.dnb.nl/en/sector-information/supervision-stages/ongoing-supervision/good-practices/"
+  - name: "ANSSI Guide d'hygiene informatique"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/guide-dhygiene-informatique/"
     api_url: null
     retrieval_method: "BULK_DOWNLOAD"
     format: "PDF"
     authentication: "none"
     update_frequency: "annual"
-    version: "2023"
-    effective_date: "2023-01-01"
-    license:
-      type: "Public sector publication"
-      url: null
-      summary: "Public sector guidance — free to reference"
-    coverage:
-      scope: "Financial sector IT security controls"
-      version: "2023 edition"
-      item_count: 58
-    languages:
-      - "nl"
-      - "en"
-
-  - name: "NEN 7510:2017"
-    authority: "NEN"
-    official_url: "https://www.nen.nl/nen-7510-2017-nl-245398"
-    api_url: null
-    retrieval_method: "BULK_DOWNLOAD"
-    format: "PDF"
-    authentication: "none"
-    update_frequency: "manual"
-    version: "2017"
+    version: "2.0"
     effective_date: "2017-01-01"
     license:
-      type: "NEN standard (extracted reference data)"
-      url: "https://www.nen.nl/en/terms-of-use"
-      summary: "Reference data extracted — control IDs, titles, categories"
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
     coverage:
-      scope: "Healthcare information security controls"
-      version: "NEN 7510:2017"
-      item_count: 113
+      scope: "Essential security measures for all organizations"
+      version: "v2.0"
+      item_count: 55
     languages:
-      - "nl"
+      - "fr"
 
-  - name: "NEN 7512:2022"
-    authority: "NEN"
-    official_url: "https://www.nen.nl/nen-7512-2022-nl-291955"
-    api_url: null
-    retrieval_method: "BULK_DOWNLOAD"
-    format: "PDF"
-    authentication: "none"
-    update_frequency: "manual"
-    version: "2022"
-    effective_date: "2022-01-01"
-    license:
-      type: "NEN standard (extracted reference data)"
-      url: "https://www.nen.nl/en/terms-of-use"
-      summary: "Reference data extracted — control IDs, titles, categories"
-    coverage:
-      scope: "Healthcare data exchange trust controls"
-      version: "NEN 7512:2022"
-      item_count: 28
-    languages:
-      - "nl"
-
-  - name: "NEN 7513:2023"
-    authority: "NEN"
-    official_url: "https://www.nen.nl/nen-7513-2023-nl-308988"
-    api_url: null
-    retrieval_method: "BULK_DOWNLOAD"
-    format: "PDF"
-    authentication: "none"
-    update_frequency: "manual"
-    version: "2023"
-    effective_date: "2023-01-01"
-    license:
-      type: "NEN standard (extracted reference data)"
-      url: "https://www.nen.nl/en/terms-of-use"
-      summary: "Reference data extracted — control IDs, titles, categories"
-    coverage:
-      scope: "Healthcare logging and audit trail controls"
-      version: "NEN 7513:2023"
-      item_count: 24
-    languages:
-      - "nl"
-
-  - name: "NCSC-NL ICT Security Guidelines for Web Applications"
-    authority: "NCSC-NL"
-    official_url: "https://www.ncsc.nl/documenten/publicaties/2019/mei/01/ict-beveiligingsrichtlijnen-voor-webapplicaties"
+  - name: "ANSSI SecNumCloud"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/entreprise/qualifications/prestataires-de-services-de-confiance-qualifies/prestataires-de-service-dinformatique-en-nuage-secnumcloud/"
     api_url: null
     retrieval_method: "BULK_DOWNLOAD"
     format: "PDF"
     authentication: "none"
     update_frequency: "annual"
-    version: "2023"
-    effective_date: "2023-01-01"
-    license:
-      type: "CC BY 4.0"
-      url: "https://www.ncsc.nl/copyright"
-      summary: "Creative Commons Attribution — free to use with attribution"
-    coverage:
-      scope: "Web application security requirements"
-      version: "2023 edition"
-      item_count: 64
-    languages:
-      - "nl"
-
-  - name: "NCSC-NL Security Guidelines for TLS"
-    authority: "NCSC-NL"
-    official_url: "https://www.ncsc.nl/documenten/publicaties/2021/januari/19/ict-beveiligingsrichtlijnen-voor-transport-layer-security-2.1"
-    api_url: null
-    retrieval_method: "BULK_DOWNLOAD"
-    format: "PDF"
-    authentication: "none"
-    update_frequency: "annual"
-    version: "2.1"
-    effective_date: "2021-01-01"
-    license:
-      type: "CC BY 4.0"
-      url: "https://www.ncsc.nl/copyright"
-      summary: "Creative Commons Attribution — free to use with attribution"
-    coverage:
-      scope: "TLS configuration recommendations"
-      version: "v2.1"
-      item_count: 39
-    languages:
-      - "nl"
-      - "en"
-
-  - name: "DigiD ICT Security Assessment Normenkader 3.0"
-    authority: "Logius"
-    official_url: "https://www.logius.nl/domeinen/toegang/digid/documentatie"
-    api_url: null
-    retrieval_method: "BULK_DOWNLOAD"
-    format: "PDF"
-    authentication: "none"
-    update_frequency: "annual"
-    version: "3.0"
-    effective_date: "2023-01-01"
+    version: "3.2"
+    effective_date: "2022-03-01"
     license:
       type: "Public sector publication"
       url: null
-      summary: "Public sector guidance — free to reference"
+      summary: "French government publication — free to reference"
     coverage:
-      scope: "21 security norms for DigiD connection holders"
-      version: "Normenkader 3.0"
-      item_count: 21
+      scope: "Cloud service provider qualification requirements including sovereignty"
+      version: "v3.2"
+      item_count: 127
     languages:
-      - "nl"
+      - "fr"
 
-  - name: "Logius NLGov REST API Design Rules"
-    authority: "Logius"
-    official_url: "https://publicatie.centrumvoorstandaarden.nl/api/adr/"
-    api_url: "https://github.com/Logius-standaarden/API-Design-Rules"
-    retrieval_method: "GIT_CLONE"
-    format: "ReSpec/HTML"
+  - name: "PGSSI-S (Politique Generale de Securite des SI de Sante)"
+    authority: "ANS (Agence du Numerique en Sante)"
+    official_url: "https://esante.gouv.fr/produits-services/pgssi-s"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
     authentication: "none"
-    update_frequency: "monthly"
-    version: "2.0"
+    update_frequency: "annual"
+    version: "2024"
     effective_date: "2024-01-01"
     license:
-      type: "CC BY 4.0"
-      url: "https://github.com/Logius-standaarden/API-Design-Rules/blob/main/LICENSE"
-      summary: "Creative Commons Attribution — free to use with attribution"
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
     coverage:
-      scope: "REST API design rules for Dutch government services"
-      version: "ADR v2.0"
-      item_count: 36
+      scope: "Security framework for health information systems"
+      version: "2024"
+      item_count: 41
     languages:
-      - "en"
+      - "fr"
+
+  - name: "CNIL Guide de la securite des donnees personnelles"
+    authority: "CNIL"
+    official_url: "https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Security measures for organizations processing personal data under RGPD"
+      version: "2024 edition"
+      item_count: 54
+    languages:
+      - "fr"
+
+  - name: "HDS (Certification Hebergeurs de Donnees de Sante)"
+    authority: "ANS (Agence du Numerique en Sante)"
+    official_url: "https://esante.gouv.fr/produits-services/hds"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Certification requirements for health data hosting organizations"
+      version: "2024"
+      item_count: 38
+    languages:
+      - "fr"

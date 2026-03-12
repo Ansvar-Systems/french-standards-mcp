@@ -1,6 +1,6 @@
 // scripts/ingest-fetch.ts
-// Orchestrates fetching from GitHub sources (BIO2, Logius).
-// Skips PDF sources (dnb-gpib, nen-*, ncsc-*, digid) — these require manual extraction.
+// Orchestrates running all French standards ingestion scripts.
+// All sources are PDF-based with embedded data — no network fetch required.
 // Runs each sub-script via execFileSync and prints a summary.
 
 import { execFileSync } from 'node:child_process';
@@ -17,19 +17,12 @@ interface FetchResult {
   durationMs: number;
 }
 
-const GITHUB_SOURCES: { script: string; source: string }[] = [
-  { script: join(__dirname, 'ingest-bio2.ts'), source: 'BIO2 (MinBZK GitHub)' },
-  { script: join(__dirname, 'ingest-logius.ts'), source: 'Logius API Design Rules (GitHub)' },
-];
-
-const SKIPPED_SOURCES: { id: string; reason: string }[] = [
-  { id: 'dnb-gpib', reason: 'PDF source — manual extraction required' },
-  { id: 'nen-7510', reason: 'PDF source (NEN Connect) — manual extraction required' },
-  { id: 'nen-7512', reason: 'PDF source (NEN Connect) — manual extraction required' },
-  { id: 'nen-7513', reason: 'PDF source (NEN Connect) — manual extraction required' },
-  { id: 'ncsc-web', reason: 'PDF source — manual extraction required' },
-  { id: 'ncsc-tls', reason: 'PDF source — manual extraction required' },
-  { id: 'digid', reason: 'PDF source — manual extraction required' },
+const INGESTION_SCRIPTS: { script: string; source: string }[] = [
+  { script: join(__dirname, 'ingest-anssi-rgs.ts'), source: 'ANSSI RGS v2.0' },
+  { script: join(__dirname, 'ingest-anssi-hygiene.ts'), source: 'ANSSI Hygiene Guide' },
+  { script: join(__dirname, 'ingest-remaining-frameworks.ts'), source: 'SecNumCloud, PGSSI-S, CNIL, HDS' },
+  { script: join(__dirname, 'expand-frameworks.ts'), source: 'Framework expansions (SecNumCloud, CNIL, PGSSI-S, HDS)' },
+  { script: join(__dirname, 'expand-rgs-hygiene.ts'), source: 'Framework expansions (RGS, Hygiene)' },
 ];
 
 function runScript(scriptPath: string): { success: boolean; error?: string; durationMs: number } {
@@ -51,16 +44,15 @@ function runScript(scriptPath: string): { success: boolean; error?: string; dura
 }
 
 async function main(): Promise<void> {
-  console.log('Ingest Fetch — Dutch Standards MCP');
+  console.log('Ingest Fetch — French Standards MCP');
   console.log('====================================');
-  console.log(`Running ${GITHUB_SOURCES.length} GitHub source fetches`);
-  console.log(`Skipping ${SKIPPED_SOURCES.length} PDF/manual sources`);
+  console.log(`Running ${INGESTION_SCRIPTS.length} ingestion scripts`);
   console.log('');
 
   const results: FetchResult[] = [];
 
-  for (const { script, source } of GITHUB_SOURCES) {
-    console.log(`--- Fetching: ${source} ---`);
+  for (const { script, source } of INGESTION_SCRIPTS) {
+    console.log(`--- Ingesting: ${source} ---`);
     const result = runScript(script);
     results.push({ script, source, ...result });
     console.log('');
@@ -68,13 +60,12 @@ async function main(): Promise<void> {
 
   // Summary
   console.log('=============================');
-  console.log('Fetch Summary');
+  console.log('Ingestion Summary');
   console.log('=============================');
 
   const succeeded = results.filter((r) => r.success);
   const failed = results.filter((r) => !r.success);
 
-  console.log(`\nGitHub sources:`);
   for (const r of results) {
     const status = r.success ? 'OK' : 'FAILED';
     const duration = (r.durationMs / 1000).toFixed(1);
@@ -84,16 +75,11 @@ async function main(): Promise<void> {
     }
   }
 
-  console.log(`\nSkipped (PDF/manual):`);
-  for (const s of SKIPPED_SOURCES) {
-    console.log(`  [SKIP] ${s.id} — ${s.reason}`);
-  }
-
   console.log('');
-  console.log(`Result: ${succeeded.length}/${GITHUB_SOURCES.length} GitHub sources fetched successfully`);
+  console.log(`Result: ${succeeded.length}/${INGESTION_SCRIPTS.length} scripts completed successfully`);
 
   if (failed.length > 0) {
-    console.error(`\n${failed.length} source(s) failed. Check output above.`);
+    console.error(`\n${failed.length} script(s) failed. Check output above.`);
     process.exit(1);
   }
 

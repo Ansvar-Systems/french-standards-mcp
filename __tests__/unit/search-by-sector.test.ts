@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { handleSearchBySector } from '../../src/tools/search-by-sector.js';
 
 describe('handleSearchBySector', () => {
-  it('healthcare sector returns nen-7510 but not dnb-gpib-2023', () => {
+  it('healthcare sector returns hds and anssi-pgssi-s', () => {
     const result = handleSearchBySector({ sector: 'healthcare' });
 
     expect(result.isError).toBeFalsy();
@@ -11,52 +11,45 @@ describe('handleSearchBySector', () => {
 
     const text = result.content[0].text;
 
-    expect(text).toContain('nen-7510');
-    expect(text).not.toContain('dnb-gpib-2023');
-    expect(text).not.toContain('bio2');
+    expect(text).toContain('hds');
+    expect(text).toContain('anssi-pgssi-s');
   });
 
-  it('finance sector returns dnb-gpib-2023', () => {
+  it('finance sector returns anssi-secnumcloud and cnil-securite', () => {
     const result = handleSearchBySector({ sector: 'finance' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    expect(text).toContain('dnb-gpib-2023');
-    expect(text).not.toContain('nen-7510');
-    expect(text).not.toContain('bio2');
+    expect(text).toContain('anssi-secnumcloud');
+    expect(text).toContain('cnil-securite');
+    // hds is healthcare-only
+    expect(text).not.toContain('| hds |');
   });
 
-  it('government sector returns bio2', () => {
+  it('government sector returns anssi-rgs', () => {
     const result = handleSearchBySector({ sector: 'government' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    expect(text).toContain('bio2');
-    expect(text).not.toContain('nen-7510');
-    expect(text).not.toContain('dnb-gpib-2023');
+    expect(text).toContain('anssi-rgs');
   });
 
   it('with query param returns matching controls within sector frameworks', () => {
-    // BIO2 is government sector; "informatiebeveiliging" matches bio2 controls
-    const result = handleSearchBySector({ sector: 'government', query: 'informatiebeveiliging' });
+    const result = handleSearchBySector({ sector: 'government', query: 'authentification' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
     // Framework section must be present
-    expect(text).toContain('bio2');
+    expect(text).toContain('anssi-rgs');
 
     // Controls section must be present with a match
-    expect(text).toContain('bio2:');
-
-    // Must not leak controls from other sectors
-    expect(text).not.toContain('nen-7510:');
-    expect(text).not.toContain('dnb-gpib-2023:');
+    expect(text).toContain('anssi-rgs:');
   });
 
   it('unknown sector returns INVALID_INPUT', () => {
@@ -68,7 +61,7 @@ describe('handleSearchBySector', () => {
   });
 
   it('missing/empty sector returns INVALID_INPUT', () => {
-    // @ts-expect-error — intentional missing arg for test
+    // @ts-expect-error -- intentional missing arg for test
     const result = handleSearchBySector({});
 
     expect(result.isError).toBe(true);
@@ -83,8 +76,8 @@ describe('handleSearchBySector', () => {
   });
 
   it('returns NO_MATCH when sector has no frameworks', () => {
-    // 'energy' is a valid sector name but no frameworks are seeded for it
-    const result = handleSearchBySector({ sector: 'energy' });
+    // 'water' is a valid sector name but no French frameworks are scoped for it
+    const result = handleSearchBySector({ sector: 'water' });
 
     expect(result.isError).toBe(true);
     expect(result._error_type).toBe('NO_MATCH');

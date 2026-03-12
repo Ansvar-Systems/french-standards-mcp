@@ -1,6 +1,6 @@
-# CLAUDE.md - Dutch Standards MCP
+# CLAUDE.md - French Standards MCP
 
-MCP server for Dutch government cybersecurity standards.
+MCP server for French government cybersecurity standards.
 
 ## Build & Test
 
@@ -14,13 +14,17 @@ npm run test:contract # Golden contract tests
 
 ## Architecture
 
-- `src/tools/*.ts` — one file per tool, exports handler function
-- `src/db.ts` — SQLite connection singleton (WASM via @ansvar/mcp-sqlite)
-- `src/response-meta.ts` — shared _meta helper
-- `src/index.ts` — stdio entry point
-- `src/http-server.ts` — HTTP entry point with /health
-- `data/standards.db` — bundled SQLite (gitignored, built by scripts/build-db.ts)
-- `scripts/seed-test-db.ts` — creates minimal test DB
+- `src/tools/*.ts` -- one file per tool, exports handler function
+- `src/db.ts` -- SQLite connection singleton (WASM via @ansvar/mcp-sqlite)
+- `src/response-meta.ts` -- shared _meta helper
+- `src/index.ts` -- stdio entry point
+- `src/http-server.ts` -- HTTP entry point with /health
+- `data/standards.db` -- bundled SQLite (gitignored, built by scripts/build-db.ts)
+- `scripts/seed-test-db.ts` -- creates minimal test DB
+
+## Frameworks
+
+6 French cybersecurity standards: ANSSI RGS, ANSSI Guide d'hygiene, SecNumCloud, PGSSI-S, CNIL Guide securite, HDS.
 
 ## Anti-Slop
 

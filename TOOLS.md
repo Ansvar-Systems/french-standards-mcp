@@ -1,4 +1,4 @@
-# Tools — Dutch Standards MCP
+# Tools -- French Standards MCP
 
 > 11 tools across 4 categories: search, lookup, comparison, and meta
 
@@ -8,16 +8,16 @@
 
 ### `search_controls`
 
-Full-text search across all Dutch cybersecurity controls using FTS5. Returns controls ranked by relevance from the combined BIO2, DNB, NEN, NCSC-NL, DigiD, and Logius datasets. Use this when you need to find controls by keyword without knowing the framework.
+Full-text search across all French cybersecurity controls using FTS5. Returns controls ranked by relevance from the combined ANSSI RGS, ANSSI Hygiene, SecNumCloud, PGSSI-S, CNIL, and HDS datasets. Use this when you need to find controls by keyword without knowing the framework.
 
 **Parameters:**
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `query` | string | Yes | Search terms, e.g. `"toegangsbeveiliging"`, `"encryption"`, `"incident response"` |
-| `framework_id` | string | No | Restrict results to one framework, e.g. `"BIO2"`, `"DNB"`, `"NEN7510"` |
-| `category` | string | No | Filter by control category, e.g. `"Toegangsbeveiliging"` |
-| `language` | `"nl"` \| `"en"` | No | Preferred display language for titles. Defaults to Dutch (`"nl"`). Controls without an English title always show Dutch. |
+| `query` | string | Yes | Search terms, e.g. `"authentification"`, `"chiffrement"`, `"incident response"` |
+| `framework_id` | string | No | Restrict results to one framework, e.g. `"anssi-rgs"`, `"cnil-securite"`, `"hds"` |
+| `category` | string | No | Filter by control category, e.g. `"Authentification"`, `"Chiffrement"` |
+| `language` | `"fr"` \| `"en"` | No | Preferred display language for titles. Defaults to French (`"fr"`). Controls without an English title always show French. |
 | `limit` | integer | No | Maximum results to return. Default: `20`. |
 | `offset` | integer | No | Pagination offset. Default: `0`. |
 
@@ -25,18 +25,18 @@ Full-text search across all Dutch cybersecurity controls using FTS5. Returns con
 
 **Example:**
 ```
-"Which Dutch government controls address password management?"
--> search_controls({ query: "wachtwoord", language: "nl" })
+"Which French controls address password management?"
+-> search_controls({ query: "mot de passe", language: "fr" })
 
-"Find BIO2 controls on encryption"
--> search_controls({ query: "encryptie", framework_id: "BIO2" })
+"Find ANSSI RGS controls on encryption"
+-> search_controls({ query: "chiffrement", framework_id: "anssi-rgs" })
 ```
 
-**Data sources:** All 7 frameworks (BIO2, DNB, NEN7510, NEN7512, NEN7513, NCSC-NL-WebApp, NCSC-NL-TLS, DigiD, Logius-API)
+**Data sources:** All 6 frameworks (anssi-rgs, anssi-hygiene, anssi-secnumcloud, anssi-pgssi-s, cnil-securite, hds)
 
 **Limitations:**
 - FTS5 phrase search: special characters (`"`, `^`, `*`, `-`, `:`) are stripped from the query before matching
-- Searches bilingual content — a Dutch-only query may miss English-only descriptions in the same control
+- Searches bilingual content -- a French-only query may miss English-only descriptions in the same control
 - Does not support wildcard or regex patterns
 - Relevance ranking is FTS5 rank, not semantic similarity
 
@@ -50,25 +50,25 @@ Returns frameworks applicable to a specific sector, optionally filtered by a key
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `sector` | string | Yes | One of: `government`, `healthcare`, `finance`, `energy`, `telecom`, `transport`, `water`, `digital_infrastructure`, `education` |
+| `sector` | string | Yes | One of: `government`, `healthcare`, `finance`, `energy`, `telecom`, `transport`, `education`, `cloud` |
 | `query` | string | No | Optional keyword search within the sector's frameworks |
 
 **Returns:** A Markdown table of matching frameworks (ID, name, issuing body, version, control count, language). If `query` is provided, a second table lists matching controls within those frameworks (top 10 per framework, ranked by FTS5 relevance).
 
 **Example:**
 ```
-"What security frameworks apply to Dutch healthcare organizations?"
+"What security frameworks apply to French healthcare organizations?"
 -> search_by_sector({ sector: "healthcare" })
 
-"Which healthcare controls cover audit logging?"
--> search_by_sector({ sector: "healthcare", query: "auditlog" })
+"Which healthcare controls cover authentication?"
+-> search_by_sector({ sector: "healthcare", query: "authentification" })
 ```
 
 **Data sources:** Framework `scope_sectors` metadata + FTS5 on controls
 
 **Limitations:**
-- Sector taxonomy is fixed to the 9 values listed above
-- A framework appears only if it was ingested with sector metadata — frameworks without `scope_sectors` are not returned
+- Sector taxonomy is fixed to the values listed above
+- A framework appears only if it was ingested with sector metadata -- frameworks without `scope_sectors` are not returned
 - Query within sector does not cross-search frameworks not assigned to that sector
 
 ---
@@ -83,22 +83,21 @@ Retrieves the full record for a single control by its database ID. Returns the c
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `control_id` | string | Yes | The control's database ID, e.g. `"BIO2-5.1"`, `"DNB-03"`, `"NEN7510-A.9.1.1"` |
+| `control_id` | string | Yes | The control's database ID, e.g. `"anssi-rgs:AUTH-01"`, `"anssi-hygiene:1"`, `"cnil-securite:CNIL-01"` |
 
-**Returns:** A structured Markdown document with control number, Dutch and English titles, framework and issuing body, category, level, ISO 27002 mapping, Dutch description (`Beschrijving`), English description, implementation guidance, verification guidance, and source URL.
+**Returns:** A structured Markdown document with control number, French and English titles, framework and issuing body, category, level, ISO 27002 mapping, French description (`Description (FR)`), English description, implementation guidance, verification guidance, and source URL.
 
 **Example:**
 ```
-"Give me the full text of BIO2 control 5.1"
--> get_control({ control_id: "BIO2-5.1" })
+"Give me the full text of ANSSI RGS control AUTH-01"
+-> get_control({ control_id: "anssi-rgs:AUTH-01" })
 ```
 
 **Data sources:** `controls` table joined to `frameworks`
 
 **Limitations:**
-- Returns a `NO_MATCH` error if the ID does not exist — use `search_controls` or `list_controls` to discover valid IDs
-- Implementation guidance and verification guidance may be absent for some controls (especially NEN standards where full text is licensed)
-- Not all controls have English descriptions — Dutch is always present
+- Returns a `NO_MATCH` error if the ID does not exist -- use `search_controls` or `list_controls` to discover valid IDs
+- Not all controls have English descriptions -- French is always present
 
 ---
 
@@ -110,20 +109,20 @@ Returns metadata for a single framework: issuing body, version, effective date, 
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `framework_id` | string | Yes | Framework identifier, e.g. `"BIO2"`, `"DNB"`, `"NEN7510"`, `"NCSC-NL-TLS"`, `"DigiD"`, `"Logius-API"` |
+| `framework_id` | string | Yes | Framework identifier, e.g. `"anssi-rgs"`, `"anssi-hygiene"`, `"anssi-secnumcloud"`, `"anssi-pgssi-s"`, `"cnil-securite"`, `"hds"` |
 
-**Returns:** A Markdown document with framework name (Dutch and English), issuing body, version, language, control count, effective date, sectors, scope description, structure description, license, and a category breakdown table.
+**Returns:** A Markdown document with framework name (French and English), issuing body, version, language, control count, effective date, sectors, scope description, structure description, license, and a category breakdown table.
 
 **Example:**
 ```
-"What is the BIO2 framework and how many controls does it have?"
--> get_framework({ framework_id: "BIO2" })
+"What is the ANSSI RGS framework and how many controls does it have?"
+-> get_framework({ framework_id: "anssi-rgs" })
 ```
 
 **Data sources:** `frameworks` table, `controls` aggregate
 
 **Limitations:**
-- Does not return the controls themselves — use `list_controls` to enumerate them
+- Does not return the controls themselves -- use `list_controls` to enumerate them
 - Sector and scope fields depend on ingestion quality; some frameworks may have incomplete metadata
 
 ---
@@ -132,16 +131,15 @@ Returns metadata for a single framework: issuing body, version, effective date, 
 
 ### `list_controls`
 
-Lists all controls in a framework, with optional filtering by category and level. Returns a paginated table. Use this to browse a complete framework or to enumerate controls within a specific control category.
+Lists all controls in a framework, with optional filtering by category. Returns a paginated table. Use this to browse a complete framework or to enumerate controls within a specific control category.
 
 **Parameters:**
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `framework_id` | string | Yes | Framework identifier, e.g. `"BIO2"`, `"NEN7510"` |
-| `category` | string | No | Filter to one category, e.g. `"Toegangsbeveiliging"` |
-| `level` | string | No | Filter by BBN level: `"BBN1"`, `"BBN2"`, `"BBN3"` (BIO2 only) |
-| `language` | `"nl"` \| `"en"` | No | Preferred display language for titles. Defaults to Dutch. |
+| `framework_id` | string | Yes | Framework identifier, e.g. `"anssi-rgs"`, `"anssi-hygiene"` |
+| `category` | string | No | Filter to one category, e.g. `"Authentification"` |
+| `language` | `"fr"` \| `"en"` | No | Preferred display language for titles. Defaults to French. |
 | `limit` | integer | No | Maximum results. Default: `50`. |
 | `offset` | integer | No | Pagination offset. Default: `0`. |
 
@@ -149,47 +147,47 @@ Lists all controls in a framework, with optional filtering by category and level
 
 **Example:**
 ```
-"List all BIO2 controls at BBN2 level"
--> list_controls({ framework_id: "BIO2", level: "BBN2" })
+"List all ANSSI RGS authentication controls"
+-> list_controls({ framework_id: "anssi-rgs", category: "Authentification" })
 
-"Show me all NEN 7510 access control requirements"
--> list_controls({ framework_id: "NEN7510", category: "Toegangsbeveiliging" })
+"Show me all ANSSI Hygiene controls"
+-> list_controls({ framework_id: "anssi-hygiene" })
 ```
 
 **Data sources:** `controls` table
 
 **Limitations:**
-- Category and level values must match exactly as stored in the database — use `get_framework` to see the available categories first
-- Default limit of 50 may truncate large frameworks (BIO2 has ~93 controls, NEN7510 ~150)
+- Category values must match exactly as stored in the database -- use `get_framework` to see the available categories first
+- Default limit of 50 may truncate large frameworks (SecNumCloud has 127 controls)
 
 ---
 
 ### `compare_controls`
 
-Searches the same keyword query across 2–4 frameworks simultaneously and shows the top 5 matching controls per framework side by side. Use this to compare how different Dutch standards treat the same topic.
+Searches the same keyword query across 2-4 frameworks simultaneously and shows the top 5 matching controls per framework side by side. Use this to compare how different French standards treat the same topic.
 
 **Parameters:**
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `query` | string | Yes | Topic to compare, e.g. `"toegangsbeveiliging"`, `"logging"`, `"encryptie"` |
-| `framework_ids` | string[] | Yes | 2 to 4 framework IDs, e.g. `["BIO2", "NEN7510"]` or `["BIO2", "DNB", "DigiD", "Logius-API"]` |
+| `query` | string | Yes | Topic to compare, e.g. `"authentification"`, `"journalisation"`, `"chiffrement"` |
+| `framework_ids` | string[] | Yes | 2 to 4 framework IDs, e.g. `["anssi-rgs", "cnil-securite"]` or `["anssi-rgs", "anssi-hygiene", "hds", "cnil-securite"]` |
 
-**Returns:** A Markdown section per framework showing the control number, title, and a 150-character snippet of the Dutch description for up to 5 matching controls.
+**Returns:** A Markdown section per framework showing the control number, title, and a 150-character snippet of the French description for up to 5 matching controls.
 
 **Example:**
 ```
-"How do BIO2 and DNB Good Practice differ in their approach to access control?"
--> compare_controls({ query: "toegangsbeveiliging", framework_ids: ["BIO2", "DNB"] })
+"How do ANSSI RGS and CNIL differ in their approach to authentication?"
+-> compare_controls({ query: "authentification", framework_ids: ["anssi-rgs", "cnil-securite"] })
 
-"Compare incident response requirements across BIO2, NEN 7510, and DigiD"
--> compare_controls({ query: "incident", framework_ids: ["BIO2", "NEN7510", "DigiD"] })
+"Compare encryption requirements across ANSSI RGS, SecNumCloud, and CNIL"
+-> compare_controls({ query: "chiffrement", framework_ids: ["anssi-rgs", "anssi-secnumcloud", "cnil-securite"] })
 ```
 
 **Data sources:** FTS5 on `controls` filtered by `framework_id`
 
 **Limitations:**
-- Returns at most 5 controls per framework — not a full comparison of all matching controls
+- Returns at most 5 controls per framework -- not a full comparison of all matching controls
 - Snippets are truncated at 150 characters; use `get_control` for full text
 - Both frameworks must be in the database; passing an unknown ID silently returns zero results for that framework
 
@@ -197,30 +195,30 @@ Searches the same keyword query across 2–4 frameworks simultaneously and shows
 
 ### `get_iso_mapping`
 
-Returns all Dutch controls that map to a specific ISO 27002:2022 control number. Use this to find which Dutch standards implement a given ISO requirement, or to check Dutch compliance coverage for an ISO audit.
+Returns all French controls that map to a specific ISO 27002:2022 control number. Use this to find which French standards implement a given ISO requirement, or to check French compliance coverage for an ISO audit.
 
 **Parameters:**
 
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `iso_control` | string | Yes | ISO 27002:2022 control reference, e.g. `"5.15"`, `"8.2"`, `"6.1"` |
+| `iso_control` | string | Yes | ISO 27002:2022 control reference, e.g. `"5.15"`, `"8.5"`, `"8.24"` |
 
-**Returns:** A Markdown table grouped by framework, listing each Dutch control mapped to that ISO reference (ID, control number, title).
+**Returns:** A Markdown table grouped by framework, listing each French control mapped to that ISO reference (ID, control number, title).
 
 **Example:**
 ```
-"Which Dutch controls implement ISO 27002 control 5.15 (Identity management)?"
--> get_iso_mapping({ iso_control: "5.15" })
+"Which French controls implement ISO 27002 control 8.5 (Secure authentication)?"
+-> get_iso_mapping({ iso_control: "8.5" })
 
-"Show me all Dutch framework controls that map to ISO 27002 8.2"
--> get_iso_mapping({ iso_control: "8.2" })
+"Show me all French framework controls that map to ISO 27002 8.24"
+-> get_iso_mapping({ iso_control: "8.24" })
 ```
 
 **Data sources:** `controls.iso_mapping` field
 
 **Limitations:**
-- Only returns controls with an exact `iso_mapping` match — controls without ISO mapping are not included
-- ISO mapping coverage varies by framework: BIO2 has extensive mapping; NEN 7510 mapping is partial
+- Only returns controls with an exact `iso_mapping` match -- controls without ISO mapping are not included
+- ISO mapping coverage varies by framework: ANSSI RGS and SecNumCloud have extensive mapping; other frameworks have varying coverage
 - Does not support partial matches or range queries (e.g. `"5.x"` will not match)
 
 ---
@@ -237,14 +235,14 @@ Returns a summary table of all frameworks in the database. No parameters require
 
 **Example:**
 ```
-"What Dutch cybersecurity frameworks does this MCP cover?"
+"What French cybersecurity frameworks does this MCP cover?"
 -> list_frameworks()
 ```
 
 **Data sources:** `frameworks` table joined to control counts
 
 **Limitations:**
-- Lists only frameworks loaded in the current database build — reflects ingestion coverage
+- Lists only frameworks loaded in the current database build -- reflects ingestion coverage
 - Sector data may be empty for frameworks ingested without sector metadata
 
 ---
@@ -259,7 +257,7 @@ Returns server metadata: version, category, schema version, database build date,
 
 **Example:**
 ```
-"What version of the Dutch Standards MCP is running and when was it last updated?"
+"What version of the French Standards MCP is running and when was it last updated?"
 -> about()
 ```
 
@@ -289,7 +287,7 @@ Returns the data provenance table: for each source, the authority, standard name
 
 **Limitations:**
 - The fallback list is hardcoded; full YAML parsing requires an optional dependency not included in the default build
-- Does not show per-source item counts or last-refresh dates — use `check_data_freshness` for that
+- Does not show per-source item counts or last-refresh dates -- use `check_data_freshness` for that
 
 ---
 
@@ -303,33 +301,32 @@ Reports how current each data source is against its expected refresh schedule. R
 
 **Example:**
 ```
-"Is the Dutch Standards MCP data up to date?"
+"Is the French Standards MCP data up to date?"
 -> check_data_freshness()
 ```
 
 **Data sources:** `data/coverage.json` (generated by `npm run coverage:update`)
 
 **Limitations:**
-- Returns a "no coverage data" message if `coverage.json` has not been generated yet — run `npm run coverage:update` after first build
+- Returns a "no coverage data" message if `coverage.json` has not been generated yet -- run `npm run coverage:update` after first build
 - Status is based on the `last_fetched` date in `coverage.json`, not a live check of upstream sources
 - `OVERDUE` status means the data is past its scheduled refresh window, not necessarily that the data has changed
 
 ---
 
-## Dutch Cybersecurity Glossary
+## French Cybersecurity Glossary
 
-This glossary covers terms used in Dutch government cybersecurity standards that appear as parameters, category names, or framework identifiers in the tools above.
+This glossary covers terms used in French government cybersecurity standards that appear as parameters, category names, or framework identifiers in the tools above.
 
 | Term | Expansion | Meaning |
 |------|-----------|---------|
-| **BBN** | Basisbeveiligingsniveau | Baseline security level. BIO2 defines three: BBN1 (basic), BBN2 (standard government), BBN3 (high-risk systems). Used as `level` parameter in `list_controls`. |
-| **BIO** | Baseline Informatiebeveiliging Overheid | The mandatory information security baseline for all Dutch government bodies. BIO2 is the current version (2024), based on ISO 27002:2022. Issued by CIP/BZK. |
-| **SIVA** | Strategisch / Inhoudelijk / Verbindend / Afstemmend | The four government roles in Dutch information security governance. Determines which BBN level applies to a system based on its strategic, substantive, connecting, or coordinating function. |
-| **Normenkader** | — | A normative framework or set of norms. Used specifically for the DigiD ICT Security Assessment Normenkader 3.0 (Logius), which sets 21 security norms for organizations connecting to DigiD. |
-| **Zorgplicht** | — | Duty of care. A legal obligation on organizations (especially critical infrastructure operators and government bodies) to take appropriate security measures. Referenced in NIS2 and Dutch cybersecurity law. |
-| **Meldplicht** | — | Reporting obligation. Requirement to notify a supervisory authority (e.g., the NCSC, the DPA) of a security incident or data breach within a defined timeframe. |
-| **Overheidsmaatregelen** | — | Government measures. Refers to the set of technical and organizational controls mandated by the Dutch government for specific system classifications under BIO2. |
-| **NCSC-NL** | Nationaal Cyber Security Centrum | The Dutch national cybersecurity authority, part of the Ministry of Justice and Security. Issues guidelines for web applications, TLS, and other technical topics. Framework ID: `NCSC-NL-WebApp`, `NCSC-NL-TLS`. |
-| **DNB** | De Nederlandsche Bank | The Dutch central bank and financial sector supervisor. Publishes the Good Practice Informatiebeveiliging for financial institutions. Framework ID: `DNB`. |
-| **NEN** | Nederlands Normalisatie-instituut | The Dutch standards body. Publishes NEN 7510 (healthcare information security), NEN 7512 (electronic data exchange in healthcare), and NEN 7513 (electronic patient records). |
-| **Logius** | — | The Dutch government's digital services agency (part of BZK). Issues the DigiD Normenkader and the NLGov REST API Design Rules. Framework IDs: `DigiD`, `Logius-API`. |
+| **ANSSI** | Agence nationale de la securite des systemes d'information | The French national cybersecurity agency, part of the SGDSN (Secretariat general de la defense et de la securite nationale). Issues RGS, Guide d'hygiene, SecNumCloud, and PGSSI-S standards. |
+| **RGS** | Referentiel General de Securite | The General Security Framework mandating authentication, encryption, and timestamping for French public sector electronic exchanges. Framework ID: `anssi-rgs`. |
+| **SecNumCloud** | Securite Numerique Cloud | ANSSI qualification standard for cloud service providers. Covers infrastructure, operations, and tenant isolation. Framework ID: `anssi-secnumcloud`. |
+| **PGSSI-S** | Politique Generale de Securite des Systemes d'Information de Sante | The General Security Policy for Health Information Systems, issued jointly by ANS and ANSSI. Framework ID: `anssi-pgssi-s`. |
+| **CNIL** | Commission Nationale de l'Informatique et des Libertes | The French data protection authority. Issues the Guide de la securite des donnees personnelles. Framework ID: `cnil-securite`. |
+| **HDS** | Hebergeurs de Donnees de Sante | Health Data Hosting certification. Organizations hosting French health data must be HDS-certified. Framework ID: `hds`. |
+| **ANS** | Agence du Numerique en Sante | The French national digital health agency. Co-issues PGSSI-S and oversees HDS certification. |
+| **OIV** | Operateurs d'Importance Vitale | Operators of vital importance -- critical infrastructure operators subject to LPM security requirements. |
+| **RGPD** | Reglement General sur la Protection des Donnees | French name for GDPR (General Data Protection Regulation). CNIL is the French supervisory authority. |
+| **Homologation** | -- | The French process of formal security approval for an information system, required by RGS for public sector systems. |

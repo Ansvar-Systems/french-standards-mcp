@@ -40,7 +40,7 @@ CREATE TABLE frameworks (
   structure_description TEXT,
   source_url TEXT,
   license TEXT,
-  language TEXT NOT NULL DEFAULT 'nl'
+  language TEXT NOT NULL DEFAULT 'fr'
 );
 
 CREATE TABLE controls (
@@ -189,7 +189,7 @@ console.log('FTS5 index rebuilt.');
 const insertMeta = db.prepare('INSERT INTO db_metadata (key, value) VALUES (?, ?)');
 insertMeta.run('schema_version', '1.0');
 insertMeta.run('category', 'domain_intelligence');
-insertMeta.run('mcp_name', 'Dutch Standards MCP');
+insertMeta.run('mcp_name', 'French Standards MCP');
 insertMeta.run('database_built', new Date().toISOString().split('T')[0]);
 insertMeta.run('database_version', '0.1.0');
 

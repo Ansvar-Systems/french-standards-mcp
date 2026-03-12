@@ -1,12 +1,12 @@
 {
-  "name": "dutch-standards-mcp",
-  "display_name": "Dutch Standards MCP",
-  "description": "Dutch government cybersecurity standards -- BIO2, DNB Good Practice IB, NEN 7510/7512/7513, NCSC-NL guidelines, DigiD Normenkader, Logius API Design Rules",
+  "name": "french-standards-mcp",
+  "display_name": "French Standards MCP",
+  "description": "French government cybersecurity standards -- ANSSI RGS, ANSSI Hygiene, SecNumCloud, PGSSI-S, CNIL Securite, HDS",
   "author": "Ansvar Systems",
   "author_url": "https://ansvar.eu",
-  "homepage": "https://github.com/Ansvar-Systems/dutch-standards-mcp",
+  "homepage": "https://github.com/Ansvar-Systems/french-standards-mcp",
   "category": "compliance",
-  "tags": ["dutch", "netherlands", "cybersecurity", "compliance", "bio2", "ncsc", "standards"],
+  "tags": ["french", "france", "cybersecurity", "compliance", "anssi", "cnil", "secnumcloud", "standards"],
   "license": "Apache-2.0",
   "tools_count": 11
 }

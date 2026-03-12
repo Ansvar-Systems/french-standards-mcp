@@ -30,7 +30,7 @@ export function handleListFrameworks() {
 
   const lines: string[] = [];
 
-  lines.push('## Dutch Standards Frameworks');
+  lines.push('## French Standards Frameworks');
   lines.push('');
   lines.push(`${rows.length} framework${rows.length !== 1 ? 's' : ''} available.`);
   lines.push('');

@@ -24,7 +24,7 @@ export function getMetadata(): DbMetadata {
   return {
     schema_version: map.schema_version ?? '1.0',
     category: map.category ?? 'domain_intelligence',
-    mcp_name: map.mcp_name ?? 'Dutch Standards MCP',
+    mcp_name: map.mcp_name ?? 'French Standards MCP',
     database_built: map.database_built ?? 'unknown',
     database_version: map.database_version ?? '0.1.0',
   };

@@ -41,7 +41,7 @@ export function handleGetIsoMapping(args: { iso_control?: string }) {
 
   if (rows.length === 0) {
     return errorResponse(
-      `No Dutch controls are mapped to ISO 27002 control '${isoControl}'.`,
+      `No French controls are mapped to ISO 27002 control '${isoControl}'.`,
       'NO_MATCH'
     );
   }
@@ -58,7 +58,7 @@ export function handleGetIsoMapping(args: { iso_control?: string }) {
 
   const lines: string[] = [];
 
-  lines.push(`## ISO 27002 Control ${isoControl} — Dutch Framework Mapping`);
+  lines.push(`## ISO 27002 Control ${isoControl} — French Framework Mapping`);
   lines.push('');
   lines.push(`total_results: ${rows.length}`);
   lines.push('');

@@ -2,7 +2,7 @@
 import { getMetadata } from './db.js';
 import type { ErrorType } from './types.js';
 
-const DISCLAIMER = 'Reference tool only. Not professional advice. Verify against authoritative sources.';
+const DISCLAIMER = 'Reference tool only. Not professional advice. Verify against authoritative ANSSI, CNIL, and French government sources.';
 
 export function responseMeta() {
   const metadata = getMetadata();

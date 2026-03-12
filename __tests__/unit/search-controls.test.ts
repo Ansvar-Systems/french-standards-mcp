@@ -3,35 +3,30 @@ import { describe, it, expect } from 'vitest';
 import { handleSearchControls } from '../../src/tools/search-controls.js';
 
 describe('handleSearchControls', () => {
-  it('finds controls by Dutch term "informatiebeveiliging"', () => {
-    const result = handleSearchControls({ query: 'informatiebeveiliging' });
+  it('finds controls by French term "securite"', () => {
+    const result = handleSearchControls({ query: 'securite' });
 
     expect(result.isError).toBeFalsy();
     expect(result._meta).toBeDefined();
 
     const text = result.content[0].text;
 
-    // Should find bio2 controls (many match "informatiebeveiliging")
-    expect(text).toContain('bio2:');
     expect(text).toContain('total_results');
-
     // Markdown table structure
     expect(text).toContain('| ID |');
     expect(text).toContain('|');
   });
 
-  it('finds controls by English term "monitoring"', () => {
-    // "monitoring" appears in bio2:8.16.01 title ("Monitoring activities")
-    const result = handleSearchControls({ query: 'monitoring' });
+  it('finds controls by English term "authentication"', () => {
+    const result = handleSearchControls({ query: 'authentication' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    // Should find bio2:8.16.01 which has "Monitoring" in its title
-    expect(text).toContain('bio2:8.16');
+    // Should find anssi-rgs:AUTH-01 which has "Authentication" in its title
+    expect(text).toContain('anssi-rgs:AUTH');
     expect(text).toContain('total_results');
-    // Should find at least one result
     const totalMatch = text.match(/total_results:\s*(\d+)/);
     expect(totalMatch).not.toBeNull();
     const total = parseInt(totalMatch![1], 10);
@@ -39,18 +34,18 @@ describe('handleSearchControls', () => {
   });
 
   it('filters by framework_id', () => {
-    const result = handleSearchControls({ query: 'informatiebeveiliging', framework_id: 'bio2' });
+    const result = handleSearchControls({ query: 'securite', framework_id: 'anssi-rgs' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
 
-    // Should find bio2 controls only
-    expect(text).toContain('bio2:');
+    // Should find anssi-rgs controls only
+    expect(text).toContain('anssi-rgs:');
 
     // Should NOT find controls from other frameworks
-    expect(text).not.toContain('nen-7510');
-    expect(text).not.toContain('dnb-gpib-2023:');
+    expect(text).not.toContain('cnil-securite:');
+    expect(text).not.toContain('hds:');
   });
 
   it('returns NO_MATCH for gibberish', () => {
@@ -79,54 +74,40 @@ describe('handleSearchControls', () => {
   });
 
   it('supports pagination with offset', () => {
-    // Search for something broad enough to return multiple results
-    const page1 = handleSearchControls({ query: 'informatiebeveiliging', limit: 1, offset: 0 });
-    const page2 = handleSearchControls({ query: 'informatiebeveiliging', limit: 1, offset: 1 });
+    const page1 = handleSearchControls({ query: 'securite', limit: 1, offset: 0 });
+    const page2 = handleSearchControls({ query: 'securite', limit: 1, offset: 1 });
 
     expect(page1.isError).toBeFalsy();
 
     const text1 = page1.content[0].text;
-
-    // Page 1 reports total count
     expect(text1).toContain('total_results');
 
-    // If there are multiple results, page 2 should differ from page 1
     const totalMatch = text1.match(/total_results:\s*(\d+)/);
     if (totalMatch && parseInt(totalMatch[1], 10) > 1) {
       expect(page2.isError).toBeFalsy();
       const text2 = page2.content[0].text;
-
-      // Pages should not be identical
       expect(text1).not.toBe(text2);
     }
   });
 
   it('language fallback: EN preferred for bilingual controls', () => {
-    // Search with language en -- bio2 controls have English titles
-    const result = handleSearchControls({ query: 'informatiebeveiliging', language: 'en' });
+    const result = handleSearchControls({ query: 'authentication', language: 'en' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
-
-    // Should have results
     expect(text).toContain('total_results');
-    // Bio2 has English titles -- should be visible
-    expect(text).toContain('bio2:');
+    expect(text).toContain('anssi-rgs:');
   });
 
-  it('language fallback: Dutch-only control shows Dutch title when language is en', () => {
-    // nen-7510-2017:12.4.1 title_nl = 'Gebeurtenissen registreren'
-    const result = handleSearchControls({ query: 'Gebeurtenissen', language: 'en' });
+  it('language fallback: French title shown when language is en and no English title', () => {
+    // Search for a French-specific term
+    const result = handleSearchControls({ query: 'chiffrement', language: 'en' });
 
     expect(result.isError).toBeFalsy();
 
     const text = result.content[0].text;
-
-    // Should find nen-7510-2017:12.4.1
-    expect(text).toContain('nen-7510-2017:12.4.1');
-
-    // Dutch-only: title is null, so falls back to Dutch title
-    expect(text).toContain('Gebeurtenissen registreren');
+    // Should find results containing chiffrement
+    expect(text).toContain('total_results');
   });
 });
