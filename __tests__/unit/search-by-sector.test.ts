@@ -15,7 +15,7 @@ describe('handleSearchBySector', () => {
     expect(text).toContain('anssi-pgssi-s');
   });
 
-  it('finance sector returns anssi-secnumcloud and cnil-securite', () => {
+  it('finance sector returns anssi-secnumcloud, cnil-securite, and financial frameworks', () => {
     const result = handleSearchBySector({ sector: 'finance' });
 
     expect(result.isError).toBeFalsy();
@@ -24,6 +24,8 @@ describe('handleSearchBySector', () => {
 
     expect(text).toContain('anssi-secnumcloud');
     expect(text).toContain('cnil-securite');
+    expect(text).toContain('acpr-it');
+    expect(text).toContain('dora-fr');
     // hds is healthcare-only
     expect(text).not.toContain('| hds |');
   });
@@ -75,11 +77,11 @@ describe('handleSearchBySector', () => {
     expect(result._error_type).toBe('INVALID_INPUT');
   });
 
-  it('returns NO_MATCH when sector has no frameworks', () => {
-    // 'water' is a valid sector name but no French frameworks are scoped for it
-    const result = handleSearchBySector({ sector: 'water' });
+  it('returns INVALID_INPUT for unrecognized sector', () => {
+    // 'mining' is not a recognized sector
+    const result = handleSearchBySector({ sector: 'mining' });
 
     expect(result.isError).toBe(true);
-    expect(result._error_type).toBe('NO_MATCH');
+    expect(result._error_type).toBe('INVALID_INPUT');
   });
 });

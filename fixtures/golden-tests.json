@@ -59,11 +59,11 @@
     ]
   },
   {
-    "id": "list-frameworks-returns-6",
+    "id": "list-frameworks-returns-31",
     "tool": "list_frameworks",
     "args": {},
     "assertions": [
-      { "type": "contains", "value": "6 frameworks" },
+      { "type": "contains", "value": "31 frameworks" },
       { "type": "contains", "value": "anssi-rgs" },
       { "type": "contains", "value": "anssi-hygiene" },
       { "type": "contains", "value": "anssi-secnumcloud" },
@@ -171,6 +171,93 @@
     "assertions": [
       { "type": "is_error" },
       { "type": "error_type", "value": "NO_MATCH" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-ebios",
+    "tool": "get_framework",
+    "args": { "framework_id": "anssi-ebios-rm" },
+    "assertions": [
+      { "type": "contains", "value": "EBIOS Risk Manager" },
+      { "type": "contains", "value": "ANSSI" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-lpm-oiv",
+    "tool": "get_framework",
+    "args": { "framework_id": "lpm-oiv" },
+    "assertions": [
+      { "type": "contains", "value": "Programmation Militaire" },
+      { "type": "contains", "value": "SIIV" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-nis2-fr",
+    "tool": "get_framework",
+    "args": { "framework_id": "nis2-fr" },
+    "assertions": [
+      { "type": "contains", "value": "NIS2" },
+      { "type": "contains", "value": "ANSSI" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-dora-fr",
+    "tool": "get_framework",
+    "args": { "framework_id": "dora-fr" },
+    "assertions": [
+      { "type": "contains", "value": "DORA" },
+      { "type": "contains", "value": "ACPR" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-control-lpm-oiv-01",
+    "tool": "get_control",
+    "args": { "control_id": "lpm-oiv:LPM-01" },
+    "assertions": [
+      { "type": "contains", "value": "SIIV" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-control-ebios-w1-01",
+    "tool": "get_control",
+    "args": { "control_id": "anssi-ebios-rm:W1-01" },
+    "assertions": [
+      { "type": "contains", "value": "cadre" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "sector-energy",
+    "tool": "search_by_sector",
+    "args": { "sector": "energy" },
+    "assertions": [
+      { "type": "contains", "value": "lpm-oiv" },
+      { "type": "contains", "value": "nis2-fr" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "search-incident-notification",
+    "tool": "search_controls",
+    "args": { "query": "notification" },
+    "assertions": [
+      { "type": "contains", "value": "total_results" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "list-controls-dora-fr",
+    "tool": "list_controls",
+    "args": { "framework_id": "dora-fr" },
+    "assertions": [
+      { "type": "contains", "value": "total_results:" },
+      { "type": "contains", "value": "dora-fr:" },
       { "type": "has_meta" }
     ]
   }

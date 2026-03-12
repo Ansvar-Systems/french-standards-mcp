@@ -1,7 +1,7 @@
 {
   "name": "@ansvar/french-standards-mcp",
   "version": "0.1.0",
-  "description": "French government cybersecurity standards MCP -- ANSSI RGS, ANSSI Hygiene, SecNumCloud, PGSSI-S, CNIL Securite, HDS. Part of the Ansvar MCP Network (ansvar.ai/mcp)",
+  "description": "French government cybersecurity standards MCP -- 31 frameworks, 727 controls: ANSSI (RGS, SecNumCloud, EBIOS, PASSI, PDIS, PRIS, 11 technical guides), CNIL, LPM-OIV, NIS2, DORA, ACPR, PGSSI-S, HDS, CI-SIS, II 901, DINUM Cloud, RGI. Part of the Ansvar MCP Network (ansvar.ai/mcp)",
   "main": "dist/index.js",
   "type": "module",
   "bin": {

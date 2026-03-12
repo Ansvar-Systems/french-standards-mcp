@@ -1,0 +1,108 @@
+{
+  "framework": {
+    "id": "rgi",
+    "name": "General Interoperability Framework (RGI)",
+    "name_nl": "Referentiel General d'Interoperabilite (RGI)",
+    "issuing_body": "Direction interministerielle du numerique (DINUM)",
+    "version": "2.0",
+    "effective_date": "2016-04-20",
+    "scope": "Interoperability standards for French government information systems, including security aspects of data exchange",
+    "scope_sectors": [
+      "government"
+    ],
+    "structure_description": "Recommendations for technical, syntactic, semantic, and organizational interoperability with security requirements for data exchange protocols.",
+    "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/",
+    "license": "Public sector publication",
+    "language": "fr"
+  },
+  "controls": [
+    {
+      "control_number": "RGI-SEC-01",
+      "title": "Secure data exchange protocols",
+      "title_nl": "Protocoles d'echange de donnees securises",
+      "description": "Government data exchanges shall use secure protocols (HTTPS, SFTP, AS4) with mutual authentication.",
+      "description_nl": "Les echanges de donnees gouvernementaux doivent utiliser des protocoles securises (HTTPS, SFTP, AS4) avec authentification mutuelle.",
+      "category": "Securite des echanges",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.24",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    },
+    {
+      "control_number": "RGI-SEC-02",
+      "title": "XML and JSON security",
+      "title_nl": "Securite XML et JSON",
+      "description": "XML and JSON payloads shall be validated against schemas, with protection against injection and XXE attacks.",
+      "description_nl": "Les charges utiles XML et JSON doivent etre validees par rapport a des schemas, avec protection contre les attaques d'injection et XXE.",
+      "category": "Securite des echanges",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.28",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    },
+    {
+      "control_number": "RGI-SEC-03",
+      "title": "Digital signature for official documents",
+      "title_nl": "Signature numerique pour les documents officiels",
+      "description": "Official electronic documents shall be digitally signed using RGS-compliant signature mechanisms.",
+      "description_nl": "Les documents electroniques officiels doivent etre signes numeriquement en utilisant des mecanismes de signature conformes au RGS.",
+      "category": "Signature et authentification",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.24",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    },
+    {
+      "control_number": "RGI-SEC-04",
+      "title": "API security standards",
+      "title_nl": "Normes de securite des API",
+      "description": "Government APIs shall implement OAuth 2.0/OpenID Connect, rate limiting, input validation, and API gateway protection.",
+      "description_nl": "Les API gouvernementales doivent implementer OAuth 2.0/OpenID Connect, la limitation de debit, la validation des entrees et la protection par passerelle API.",
+      "category": "Securite des API",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.5",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    },
+    {
+      "control_number": "RGI-SEC-05",
+      "title": "Certificate requirements for interoperability",
+      "title_nl": "Exigences de certificats pour l'interoperabilite",
+      "description": "Use certificates from RGS-qualified certification authorities for inter-administration authentication and encryption.",
+      "description_nl": "Utiliser des certificats provenant d'autorites de certification qualifiees RGS pour l'authentification et le chiffrement inter-administrations.",
+      "category": "Certificats",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.24",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    },
+    {
+      "control_number": "RGI-SEC-06",
+      "title": "Interoperability audit trail",
+      "title_nl": "Piste d'audit d'interoperabilite",
+      "description": "All inter-system data exchanges shall be logged with sender, receiver, timestamp, and transaction identifier.",
+      "description_nl": "Tous les echanges de donnees inter-systemes doivent etre journalises avec l'emetteur, le recepteur, l'horodatage et l'identifiant de transaction.",
+      "category": "Tracabilite",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.15",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    }
+  ],
+  "metadata": {
+    "ingested_at": "2026-03-12T10:39:25.474Z",
+    "total_controls": 6
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "framework": {
+    "id": "anssi-cloisonnement",
+    "name": "System Segmentation Recommendations",
+    "name_nl": "Recommandations pour la mise en place de cloisonnement systeme",
+    "issuing_body": "Agence nationale de la securite des systemes d'information (ANSSI)",
+    "version": "1.0",
+    "effective_date": "2017-12-01",
+    "scope": "Recommendations for implementing system-level segmentation to contain security incidents and limit lateral movement",
+    "scope_sectors": [
+      "government",
+      "energy",
+      "telecom",
+      "digital_infrastructure"
+    ],
+    "structure_description": "Recommendations for host-based segmentation, container isolation, virtualization security, application sandboxing, and privilege separation.",
+    "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/",
+    "license": "Public sector publication",
+    "language": "fr"
+  },
+  "controls": [
+    {
+      "control_number": "CLOIS-01",
+      "title": "Identify segmentation boundaries",
+      "title_nl": "Identifier les frontieres de cloisonnement",
+      "description": "Analyze the information system to identify natural segmentation boundaries based on data sensitivity and functional domains.",
+      "description_nl": "Analyser le systeme d'information pour identifier les frontieres naturelles de cloisonnement basees sur la sensibilite des donnees et les domaines fonctionnels.",
+      "category": "Principes de cloisonnement",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.22",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-02",
+      "title": "Micro-segmentation",
+      "title_nl": "Micro-segmentation",
+      "description": "Apply micro-segmentation at the workload level using host firewalls, network policies, or SDN to limit east-west traffic.",
+      "description_nl": "Appliquer la micro-segmentation au niveau des charges de travail en utilisant des pare-feu hotes, des politiques reseau ou le SDN pour limiter le trafic est-ouest.",
+      "category": "Segmentation reseau",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.22",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-03",
+      "title": "Container isolation",
+      "title_nl": "Isolation des conteneurs",
+      "description": "Containers shall run with minimal privileges, read-only root filesystems, dropped capabilities, and mandatory access control.",
+      "description_nl": "Les conteneurs doivent fonctionner avec des privileges minimaux, des systemes de fichiers racine en lecture seule, des capacites retirees et un controle d'acces obligatoire.",
+      "category": "Isolation applicative",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.9",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-04",
+      "title": "Virtual machine isolation",
+      "title_nl": "Isolation des machines virtuelles",
+      "description": "VMs hosting different security levels shall run on separate hypervisor hosts or use hardware-enforced isolation.",
+      "description_nl": "Les VM hebergeant des niveaux de securite differents doivent fonctionner sur des hotes hyperviseurs separes ou utiliser l'isolation renforcee par materiel.",
+      "category": "Virtualisation",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.22",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-05",
+      "title": "Application sandboxing",
+      "title_nl": "Sandboxing applicatif",
+      "description": "Run high-risk applications (browsers, email clients, document viewers) in sandboxed environments.",
+      "description_nl": "Executer les applications a haut risque (navigateurs, clients de messagerie, visionneuses de documents) dans des environnements sandboxes.",
+      "category": "Isolation applicative",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.9",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-06",
+      "title": "Privilege separation",
+      "title_nl": "Separation des privileges",
+      "description": "Apply the principle of least privilege at the system level: separate service accounts, avoid running services as root.",
+      "description_nl": "Appliquer le principe du moindre privilege au niveau systeme : comptes de service separes, eviter d'executer des services en tant que root.",
+      "category": "Privileges",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.2",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-07",
+      "title": "Mandatory access control",
+      "title_nl": "Controle d'acces obligatoire",
+      "description": "Deploy mandatory access control (SELinux, AppArmor) on critical servers to confine services even if compromised.",
+      "description_nl": "Deployer le controle d'acces obligatoire (SELinux, AppArmor) sur les serveurs critiques pour confiner les services meme en cas de compromission.",
+      "category": "Controle d'acces",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.3",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    },
+    {
+      "control_number": "CLOIS-08",
+      "title": "Monitoring segmentation effectiveness",
+      "title_nl": "Surveillance de l'efficacite du cloisonnement",
+      "description": "Monitor inter-zone traffic to detect segmentation violations and lateral movement attempts.",
+      "description_nl": "Surveiller le trafic inter-zones pour detecter les violations de cloisonnement et les tentatives de mouvement lateral.",
+      "category": "Surveillance",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.16",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    }
+  ],
+  "metadata": {
+    "ingested_at": "2026-03-12T10:35:45.086Z",
+    "total_controls": 8
+  }
+}

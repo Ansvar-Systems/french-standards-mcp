@@ -1,200 +1,272 @@
 {
-  "schema_version": "1.0",
-  "mcp_name": "French Standards MCP",
-  "mcp_type": "domain_intelligence",
-  "coverage_date": "2026-03-12",
-  "database_version": "0.1.0",
+  "mcp_name": "french-standards-mcp",
+  "generated_at": "2026-03-12T10:42:47Z",
+  "summary": {
+    "frameworks": 31,
+    "controls": 727,
+    "tools": 11
+  },
   "sources": [
     {
-      "id": "anssi-rgs",
-      "name": "ANSSI RGS (Referentiel General de Securite)",
-      "authority": "ANSSI",
-      "url": "https://www.ssi.gouv.fr/entreprise/reglementation/confiance-numerique/le-referentiel-general-de-securite-rgs/",
-      "version": "2.0",
-      "item_count": 86,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All ANSSI RGS v2.0 controls extracted from official publication"
+      "id": "acpr-it",
+      "name": "ACPR - Exigences risques informatiques",
+      "item_count": 13,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "ans-ci-sis",
+      "name": "ANS CI-SIS (Cadre d'Interoperabilite des SI de Sante)",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-active-directory",
+      "name": "ANSSI Recommandations de securite relatives a Active Directory",
+      "item_count": 14,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-admin-si",
+      "name": "ANSSI Recommandations relatives a l'administration securisee des systemes d'information",
+      "item_count": 11,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-architecture",
+      "name": "ANSSI Recommandations pour les architectures des systemes d'information sensibles",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-bonnes-pratiques",
+      "name": "ANSSI Guide des bonnes pratiques de l'informatique",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-cloisonnement",
+      "name": "ANSSI Recommandations pour la mise en place de cloisonnement systeme",
+      "item_count": 8,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-crypto",
+      "name": "ANSSI Mecanismes cryptographiques - Regles et recommandations",
+      "item_count": 10,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-dev-securise",
+      "name": "ANSSI Guide de developpement securise / regles de programmation",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-ebios-rm",
+      "name": "ANSSI EBIOS Risk Manager",
+      "item_count": 23,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "anssi-hygiene",
       "name": "ANSSI Guide d'hygiene informatique",
-      "authority": "ANSSI",
-      "url": "https://www.ssi.gouv.fr/guide/guide-dhygiene-informatique/",
-      "version": "2.0",
       "item_count": 55,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All 55 hygiene rules extracted from official ANSSI guide"
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-iot",
+      "name": "ANSSI Recommandations de securite pour les dispositifs de l'Internet des objets",
+      "item_count": 11,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-journalisation",
+      "name": "ANSSI Recommandations de securite pour la journalisation",
+      "item_count": 14,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-mots-de-passe",
+      "name": "ANSSI Recommandations relatives a l'authentification multifacteur et aux mots de passe",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-passi",
+      "name": "ANSSI PASSI (Prestataires d'audit)",
+      "item_count": 25,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-pdis",
+      "name": "ANSSI PDIS (Prestataires de detection)",
+      "item_count": 16,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-pgssi-s",
+      "name": "PGSSI-S (Politique Generale de Securite des SI de Sante)",
+      "item_count": 41,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-pris",
+      "name": "ANSSI PRIS (Prestataires de reponse aux incidents)",
+      "item_count": 15,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-rgs",
+      "name": "ANSSI RGS (Referentiel General de Securite)",
+      "item_count": 86,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "anssi-secnumcloud",
       "name": "ANSSI SecNumCloud",
-      "authority": "ANSSI",
-      "url": "https://www.ssi.gouv.fr/entreprise/qualifications/prestataires-de-services-de-confiance-qualifies/prestataires-dinformatique-en-nuage-secnumcloud/",
-      "version": "3.2",
       "item_count": 127,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All SecNumCloud v3.2 controls extracted from official referentiel"
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
-      "id": "anssi-pgssi-s",
-      "name": "PGSSI-S (Politique Generale de Securite des Systemes d'Information de Sante)",
-      "authority": "ANS/ANSSI",
-      "url": "https://esante.gouv.fr/produits-services/pgssi-s",
-      "version": "2021",
-      "item_count": 41,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All PGSSI-S controls extracted from official ANS publication"
+      "id": "anssi-tls",
+      "name": "ANSSI Recommandations de securite relatives a TLS",
+      "item_count": 12,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "anssi-wifi",
+      "name": "ANSSI Recommandations de securite relatives aux reseaux WiFi",
+      "item_count": 10,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "cnil-rgpd-technique",
+      "name": "CNIL - Mesures techniques RGPD",
+      "item_count": 16,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "cnil-securite",
       "name": "CNIL Guide de la securite des donnees personnelles",
-      "authority": "CNIL",
-      "url": "https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles",
-      "version": "2024",
       "item_count": 54,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All CNIL security guide recommendations extracted"
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "dinum-cloud",
+      "name": "DINUM Doctrine d'utilisation du Cloud par l'Etat",
+      "item_count": 9,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "dora-fr",
+      "name": "DORA - Resilience operationnelle numerique",
+      "item_count": 13,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "hds",
-      "name": "HDS (Hebergeurs de Donnees de Sante)",
-      "authority": "ANS",
-      "url": "https://esante.gouv.fr/produits-services/hds",
-      "version": "2024",
+      "name": "HDS (Certification Hebergeurs de Donnees de Sante)",
       "item_count": 38,
-      "item_type": "control",
-      "last_refresh": "2026-03-12",
-      "refresh_frequency": "annual",
-      "completeness": "full",
-      "completeness_note": "All HDS certification requirements extracted"
-    }
-  ],
-  "gaps": [
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
     {
-      "id": "anssi-ebios",
-      "description": "ANSSI EBIOS Risk Manager -- risk assessment methodology for French organizations",
-      "reason": "Methodology document, not a control catalog; requires different data model",
-      "impact": "medium",
-      "planned": false,
-      "target_version": null
+      "id": "ii-901",
+      "name": "II 901 - Protection des systemes DR",
+      "item_count": 11,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
       "id": "lpm-oiv",
-      "description": "LPM OIV requirements -- sector-specific security annexes for critical infrastructure operators",
-      "reason": "Restricted distribution; sector-specific annexes not publicly consolidated",
-      "impact": "medium",
-      "planned": true,
-      "target_version": "0.2"
+      "name": "LPM - Exigences de cybersecurite des OIV",
+      "item_count": 16,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     },
     {
-      "id": "nis2-transposition",
-      "description": "NIS2 French transposition -- network and information system security directive implementation",
-      "reason": "Law not yet fully transposed as of 2026-03-12",
-      "impact": "high",
-      "planned": true,
-      "target_version": "1.0"
+      "id": "nis2-fr",
+      "name": "NIS2 Transposition francaise",
+      "item_count": 17,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
+    },
+    {
+      "id": "rgi",
+      "name": "RGI (Referentiel General d'Interoperabilite)",
+      "item_count": 6,
+      "last_checked": "2026-03-12",
+      "update_frequency": "annual",
+      "next_check_due": "2027-03-12"
     }
   ],
   "tools": [
-    {
-      "name": "search_controls",
-      "category": "search",
-      "description": "Full-text search across all controls in both French and English",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "get_control",
-      "category": "lookup",
-      "description": "Retrieve a specific control by framework-prefixed ID",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "list_controls",
-      "category": "lookup",
-      "description": "List all controls for a given framework with optional category filter",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "list_frameworks",
-      "category": "lookup",
-      "description": "List all available frameworks with control counts",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "get_framework",
-      "category": "lookup",
-      "description": "Get detailed information about a specific framework",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "get_iso_mapping",
-      "category": "analysis",
-      "description": "Find French controls that map to a specific ISO 27001/27002 control",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "compare_controls",
-      "category": "analysis",
-      "description": "Compare controls between two or more frameworks side by side",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "search_by_sector",
-      "category": "search",
-      "description": "Find controls relevant to a specific sector (government, healthcare, finance)",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "about",
-      "category": "meta",
-      "description": "Server metadata, stats, data sources, and disclaimer",
-      "data_sources": [],
-      "verified": true
-    },
-    {
-      "name": "check_data_freshness",
-      "category": "meta",
-      "description": "Per-source data age report with staleness flags",
-      "data_sources": ["anssi-rgs", "anssi-hygiene", "anssi-secnumcloud", "anssi-pgssi-s", "cnil-securite", "hds"],
-      "verified": true
-    },
-    {
-      "name": "list_sources",
-      "category": "meta",
-      "description": "Data provenance and licensing information for all sources",
-      "data_sources": [],
-      "verified": true
-    }
-  ],
-  "summary": {
-    "total_tools": 11,
-    "total_sources": 6,
-    "total_items": 401,
-    "db_size_mb": 0.39,
-    "known_gaps": 3,
-    "gaps_planned": 2
-  }
+    "about",
+    "check_data_freshness",
+    "compare_controls",
+    "get_control",
+    "get_framework",
+    "get_iso_mapping",
+    "list_controls",
+    "list_frameworks",
+    "list_sources",
+    "search_by_sector",
+    "search_controls"
+  ]
 }

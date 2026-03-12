@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-ansvar.ai%2Fmcp-blue)](https://ansvar.ai/mcp)
 
-Structured access to French government cybersecurity standards: ANSSI RGS, ANSSI Guide d'hygiene informatique, SecNumCloud, PGSSI-S, CNIL guide de la securite des donnees personnelles, and HDS (Hebergeurs de Donnees de Sante). Bilingual French/English with FTS search, ISO 27002:2022 cross-references, and sector-based filtering.
+Structured access to 31 French government cybersecurity standards and regulatory frameworks: ANSSI (RGS, SecNumCloud, EBIOS, PASSI, PDIS, PRIS, and 11 technical guides), CNIL (data security and RGPD), LPM-OIV, NIS2, DORA, ACPR, healthcare (PGSSI-S, HDS, CI-SIS), defence (II 901), and government digital (DINUM Cloud, RGI). 727 controls, bilingual French/English, FTS search, ISO 27002:2022 cross-references, and sector-based filtering.
 
 Part of the [Ansvar MCP Network](https://ansvar.ai/mcp) -- specialist MCP servers for compliance and security intelligence.
 
@@ -73,16 +73,46 @@ Add to your MCP client config:
 
 ## What's Included
 
-| Source | Authority | Items | Language | Refresh |
-|--------|-----------|-------|----------|---------|
-| ANSSI RGS (Referentiel General de Securite) | ANSSI | 86 controls | FR+EN | Annual |
-| ANSSI Guide d'hygiene informatique | ANSSI | 55 controls | FR+EN | Annual |
-| SecNumCloud (Prestataires de services d'informatique en nuage) | ANSSI | 127 controls | FR+EN | Annual |
-| PGSSI-S (Politique Generale de Securite des Systemes d'Information de Sante) | ANS/ANSSI | 41 controls | FR+EN | Annual |
-| CNIL Guide de la securite des donnees personnelles | CNIL | 54 controls | FR+EN | Annual |
-| HDS (Hebergeurs de Donnees de Sante) | ANS | 38 controls | FR+EN | Annual |
+### ANSSI Core (8 frameworks, 359 controls)
 
-**Total:** 401 controls across 6 frameworks.
+| Source | Items |
+|--------|-------|
+| RGS (Referentiel General de Securite) | 86 |
+| Guide d'hygiene informatique (42 mesures) | 55 |
+| SecNumCloud v3.2 | 127 |
+| EBIOS Risk Manager | 23 |
+| PASSI (audit service providers) | 25 |
+| PDIS (detection service providers) | 16 |
+| PRIS (incident response providers) | 15 |
+| Bonnes pratiques de l'informatique (12 rules) | 12 |
+
+### ANSSI Technical Guides (11 guides, 126 controls)
+
+TLS, Logging, Password/MFA, Active Directory, Secure Architecture, Secure Development, WiFi, IoT, System Segmentation, Cryptographic Mechanisms, IS Administration Security.
+
+### Regulatory (6 frameworks, 75 controls)
+
+| Source | Authority | Items |
+|--------|-----------|-------|
+| LPM-OIV (critical infrastructure) | SGDSN/ANSSI | 16 |
+| NIS2 French transposition | ANSSI | 17 |
+| RGPD technical measures | CNIL | 16 |
+| II 901 (Diffusion Restreinte) | SGDSN | 11 |
+| DINUM Cloud doctrine | DINUM | 9 |
+| RGI (Interoperability) | DINUM | 6 |
+
+### Data Protection, Healthcare, Finance (6 frameworks, 167 controls)
+
+| Source | Authority | Items |
+|--------|-----------|-------|
+| CNIL Guide de la securite des donnees personnelles | CNIL | 54 |
+| PGSSI-S (health IS security) | ANS | 41 |
+| HDS (health data hosting) | ANS | 38 |
+| ANS CI-SIS (health interoperability) | ANS | 8 |
+| ACPR IT risk requirements | ACPR/Banque de France | 13 |
+| DORA French implementation | ACPR/AMF | 13 |
+
+**Total:** 727 controls across 31 frameworks.
 
 For full coverage details, see [COVERAGE.md](COVERAGE.md).
 
@@ -92,10 +122,10 @@ For full coverage details, see [COVERAGE.md](COVERAGE.md).
 
 | Gap | Status |
 |-----|--------|
-| ANSSI EBIOS Risk Manager | Not planned -- risk assessment methodology, not a control catalog |
-| ANSSI PASSI (prestataires d'audit) | Not planned -- audit provider qualification, not a control framework |
-| Loi de Programmation Militaire (LPM) OIV requirements | Planned -- requires scoping of sector-specific annexes |
-| NIS2 French transposition | Planned -- law not yet fully transposed as of 2026-03-12 |
+| IGI 1300 (classified information protection) | Not planned -- restricted distribution document |
+| ANSSI PAMS (maintenance providers) | Not planned -- narrow scope |
+| ARCEP telecom operator requirements | Possible v0.3 |
+| NF Z42-013 (electronic archiving) | Not planned -- AFNOR commercial standard |
 | ISO/IEC 27001:2022 full text | Excluded -- commercial ISO license; ISO cross-references available via `get_iso_mapping` |
 
 For the complete gap list, see [COVERAGE.md -- What's NOT Included](COVERAGE.md#whats-not-included).
@@ -106,7 +136,7 @@ For the complete gap list, see [COVERAGE.md -- What's NOT Included](COVERAGE.md#
 
 | Tool | Category | Description |
 |------|----------|-------------|
-| `search_controls` | Search | Full-text search across all 6 frameworks. Returns controls ranked by FTS5 relevance. |
+| `search_controls` | Search | Full-text search across all 31 frameworks. Returns controls ranked by FTS5 relevance. |
 | `search_by_sector` | Search | Returns frameworks for a sector (`government`, `healthcare`, `finance`, etc.), optionally filtered by keyword. |
 | `get_control` | Lookup | Full record for a single control: bilingual description, implementation guidance, ISO mapping. |
 | `get_framework` | Lookup | Metadata for a framework: issuing body, version, control count, category breakdown. |
@@ -124,14 +154,7 @@ For full parameter documentation, return formats, and examples, see [TOOLS.md](T
 
 ## Data Sources & Freshness
 
-| Source | Last Refresh | Refresh Schedule |
-|--------|-------------|-----------------|
-| ANSSI RGS | 2026-03-12 | Annual |
-| ANSSI Guide d'hygiene informatique | 2026-03-12 | Annual |
-| SecNumCloud | 2026-03-12 | Annual |
-| PGSSI-S | 2026-03-12 | Annual |
-| CNIL Guide securite | 2026-03-12 | Annual |
-| HDS | 2026-03-12 | Annual |
+All 31 sources refreshed: 2026-03-12. Refresh schedule: Annual for all sources.
 
 The `ingest.yml` workflow runs automatically on the most frequent source schedule. The `check-updates.yml` workflow runs daily and creates a GitHub issue if any source is overdue.
 
@@ -236,11 +259,13 @@ npm run coverage:verify  # Gate 6: coverage consistency
 
 | Source | License |
 |--------|---------|
-| ANSSI RGS | Public sector publication (ssi.gouv.fr) |
-| ANSSI Guide d'hygiene informatique | Public sector publication (ssi.gouv.fr) |
-| SecNumCloud | Public sector publication (ssi.gouv.fr) |
-| PGSSI-S | Public sector publication (esante.gouv.fr) |
-| CNIL Guide securite | Public sector publication (cnil.fr) |
-| HDS | Public sector publication (esante.gouv.fr) |
+| ANSSI publications (18 frameworks) | Public sector publication (ssi.gouv.fr) |
+| CNIL publications (2 frameworks) | Public sector publication (cnil.fr) |
+| ANS publications (3 frameworks) | Public sector publication (esante.gouv.fr) |
+| DINUM publications (2 frameworks) | Public sector publication (numerique.gouv.fr) |
+| LPM, NIS2, II 901 (3 frameworks) | Public law (Legifrance) |
+| ACPR (1 framework) | Public sector publication (banque-france.fr) |
+| DORA (1 framework) | EU public law (eur-lex.europa.eu) |
+| Republique francaise (1 framework) | Public sector publication |
 
 All data is extracted from publicly available authoritative publications. Zero AI-generated content in the database. See [sources.yml](sources.yml) for complete provenance.

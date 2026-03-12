@@ -32,6 +32,31 @@ const FRAMEWORK_TO_SOURCE: Record<string, string> = {
   'anssi-pgssi-s': 'anssi-pgssi-s',
   'cnil-securite': 'cnil-securite',
   'hds': 'hds',
+  'anssi-ebios-rm': 'anssi-ebios-rm',
+  'anssi-passi': 'anssi-passi',
+  'anssi-pdis': 'anssi-pdis',
+  'anssi-pris': 'anssi-pris',
+  'anssi-bonnes-pratiques': 'anssi-bonnes-pratiques',
+  'anssi-tls': 'anssi-tls',
+  'anssi-journalisation': 'anssi-journalisation',
+  'anssi-mots-de-passe': 'anssi-mots-de-passe',
+  'anssi-active-directory': 'anssi-active-directory',
+  'anssi-architecture': 'anssi-architecture',
+  'anssi-dev-securise': 'anssi-dev-securise',
+  'anssi-wifi': 'anssi-wifi',
+  'anssi-iot': 'anssi-iot',
+  'anssi-cloisonnement': 'anssi-cloisonnement',
+  'anssi-crypto': 'anssi-crypto',
+  'anssi-admin-si': 'anssi-admin-si',
+  'lpm-oiv': 'lpm-oiv',
+  'nis2-fr': 'nis2-fr',
+  'cnil-rgpd-technique': 'cnil-rgpd-technique',
+  'ii-901': 'ii-901',
+  'acpr-it': 'acpr-it',
+  'dora-fr': 'dora-fr',
+  'dinum-cloud': 'dinum-cloud',
+  'rgi': 'rgi',
+  'ans-ci-sis': 'ans-ci-sis',
 };
 
 // Canonical source metadata — derived from sources.yml
@@ -66,8 +91,33 @@ function parseSourcesYml(content: string): SourceMeta[] {
     else if (fullName.includes('hygiene') || fullName.includes('Hygiene')) id = 'anssi-hygiene';
     else if (fullName.includes('SecNumCloud')) id = 'anssi-secnumcloud';
     else if (fullName.includes('PGSSI')) id = 'anssi-pgssi-s';
-    else if (fullName.includes('CNIL')) id = 'cnil-securite';
+    else if (fullName.includes('CNIL') && fullName.includes('securite')) id = 'cnil-securite';
     else if (fullName.includes('HDS')) id = 'hds';
+    else if (fullName.includes('EBIOS')) id = 'anssi-ebios-rm';
+    else if (fullName.includes('PASSI')) id = 'anssi-passi';
+    else if (fullName.includes('PDIS')) id = 'anssi-pdis';
+    else if (fullName.includes('PRIS')) id = 'anssi-pris';
+    else if (fullName.includes('bonnes pratiques')) id = 'anssi-bonnes-pratiques';
+    else if (fullName.includes('TLS') || fullName.includes('tls')) id = 'anssi-tls';
+    else if (fullName.includes('journalisation')) id = 'anssi-journalisation';
+    else if (fullName.includes('mots de passe') || fullName.includes('multifacteur')) id = 'anssi-mots-de-passe';
+    else if (fullName.includes('Active Directory')) id = 'anssi-active-directory';
+    else if (fullName.includes('architectures')) id = 'anssi-architecture';
+    else if (fullName.includes('developpement') || fullName.includes('programmation')) id = 'anssi-dev-securise';
+    else if (fullName.includes('WiFi') || fullName.includes('wifi')) id = 'anssi-wifi';
+    else if (fullName.includes('IoT') || fullName.includes('objets')) id = 'anssi-iot';
+    else if (fullName.includes('cloisonnement')) id = 'anssi-cloisonnement';
+    else if (fullName.includes('cryptographiques') || fullName.includes('Mecanismes')) id = 'anssi-crypto';
+    else if (fullName.includes('administration')) id = 'anssi-admin-si';
+    else if (fullName.includes('LPM') || fullName.includes('OIV')) id = 'lpm-oiv';
+    else if (fullName.includes('NIS2')) id = 'nis2-fr';
+    else if (fullName.includes('RGPD') || fullName.includes('CNIL')) id = 'cnil-rgpd-technique';
+    else if (fullName.includes('II 901') || fullName.includes('901')) id = 'ii-901';
+    else if (fullName.includes('ACPR')) id = 'acpr-it';
+    else if (fullName.includes('DORA')) id = 'dora-fr';
+    else if (fullName.includes('Cloud') && fullName.includes('DINUM')) id = 'dinum-cloud';
+    else if (fullName.includes('RGI')) id = 'rgi';
+    else if (fullName.includes('CI-SIS') || fullName.includes('Interoperabilite')) id = 'ans-ci-sis';
 
     sources.push({ id, name: fullName, update_frequency: freq, source_type: srcType });
   }

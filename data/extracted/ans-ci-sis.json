@@ -1,0 +1,136 @@
+{
+  "framework": {
+    "id": "ans-ci-sis",
+    "name": "Health IS Interoperability Framework Security (CI-SIS)",
+    "name_nl": "Cadre d'Interoperabilite des Systemes d'Information de Sante - Securite (CI-SIS)",
+    "issuing_body": "Agence du Numerique en Sante (ANS)",
+    "version": "2024",
+    "effective_date": "2024-01-01",
+    "scope": "Security requirements within the health information system interoperability framework",
+    "scope_sectors": [
+      "healthcare"
+    ],
+    "structure_description": "Security requirements for health data exchange protocols, identity management, consent, audit trails, and integration with Mon Espace Sante.",
+    "source_url": "https://esante.gouv.fr/produits-services/ci-sis",
+    "license": "Public sector publication",
+    "language": "fr"
+  },
+  "controls": [
+    {
+      "control_number": "CISIS-SEC-01",
+      "title": "Health data exchange encryption",
+      "title_nl": "Chiffrement des echanges de donnees de sante",
+      "description": "All health data exchanges between systems shall be encrypted using TLS 1.2+ with mutual authentication.",
+      "description_nl": "Tous les echanges de donnees de sante entre systemes doivent etre chiffres en utilisant TLS 1.2+ avec authentification mutuelle.",
+      "category": "Securite des echanges",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.24",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-02",
+      "title": "INS (Identifiant National de Sante) verification",
+      "title_nl": "Verification de l'INS (Identifiant National de Sante)",
+      "description": "Systems exchanging health data shall verify patient identity using the INS (matricule INS) through the national teleservice.",
+      "description_nl": "Les systemes echangeant des donnees de sante doivent verifier l'identite du patient en utilisant l'INS (matricule INS) via le teleservice national.",
+      "category": "Identite du patient",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "5.16",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-03",
+      "title": "Pro Sante Connect authentication",
+      "title_nl": "Authentification Pro Sante Connect",
+      "description": "Health professionals accessing shared health data shall authenticate via Pro Sante Connect (national authentication service).",
+      "description_nl": "Les professionnels de sante accedant aux donnees de sante partagees doivent s'authentifier via Pro Sante Connect (service national d'authentification).",
+      "category": "Authentification",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.5",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-04",
+      "title": "Health data consent management",
+      "title_nl": "Gestion du consentement pour les donnees de sante",
+      "description": "Implement consent verification before sharing health data, respecting patient opposition rights via Mon Espace Sante.",
+      "description_nl": "Mettre en oeuvre la verification du consentement avant le partage de donnees de sante, respectant les droits d'opposition du patient via Mon Espace Sante.",
+      "category": "Consentement",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-05",
+      "title": "Health data exchange audit trail",
+      "title_nl": "Piste d'audit des echanges de donnees de sante",
+      "description": "All health data exchanges shall generate audit records including professional identity, patient INS, and action performed.",
+      "description_nl": "Tous les echanges de donnees de sante doivent generer des enregistrements d'audit incluant l'identite du professionnel, l'INS du patient et l'action realisee.",
+      "category": "Tracabilite",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.15",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-06",
+      "title": "Structured health document security",
+      "title_nl": "Securite des documents de sante structures",
+      "description": "CDA-R2 and FHIR documents shall include digital signatures and integrity verification mechanisms.",
+      "description_nl": "Les documents CDA-R2 et FHIR doivent inclure des signatures numeriques et des mecanismes de verification d'integrite.",
+      "category": "Documents de sante",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.24",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-07",
+      "title": "DMP integration security",
+      "title_nl": "Securite de l'integration DMP",
+      "description": "Integration with the DMP (Dossier Medical Partage) shall follow ANS security specifications for reading and writing.",
+      "description_nl": "L'integration avec le DMP (Dossier Medical Partage) doit suivre les specifications de securite ANS pour la lecture et l'ecriture.",
+      "category": "Integration DMP",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    },
+    {
+      "control_number": "CISIS-SEC-08",
+      "title": "Messagerie securisee de sante (MSSante)",
+      "title_nl": "MSSante (Messagerie securisee de sante)",
+      "description": "Health message exchanges between professionals shall use MSSante for end-to-end encrypted, traceable communication.",
+      "description_nl": "Les echanges de messages de sante entre professionnels doivent utiliser MSSante pour une communication chiffree de bout en bout et tracable.",
+      "category": "Messagerie",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "8.24",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://esante.gouv.fr/produits-services/ci-sis"
+    }
+  ],
+  "metadata": {
+    "ingested_at": "2026-03-12T10:39:25.474Z",
+    "total_controls": 8
+  }
+}

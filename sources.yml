@@ -128,3 +128,528 @@ sources:
       item_count: 38
     languages:
       - "fr"
+
+  - name: "ANSSI EBIOS Risk Manager"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2018-10-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Official French risk analysis methodology"
+      version: "1.0"
+      item_count: 23
+    languages:
+      - "fr"
+
+  - name: "ANSSI PASSI (Prestataires d'audit)"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/entreprise/qualifications/prestataires-de-services-de-confiance-qualifies/prestataires-daudit-de-la-securite-des-systemes-dinformation-passi/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.1"
+    effective_date: "2015-04-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Security audit service provider qualification requirements"
+      version: "2.1"
+      item_count: 25
+    languages:
+      - "fr"
+
+  - name: "ANSSI PDIS (Prestataires de detection)"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/entreprise/qualifications/prestataires-de-services-de-confiance-qualifies/prestataires-de-detection-des-incidents-de-securite-pdis/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.0"
+    effective_date: "2017-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Security incident detection service provider requirements"
+      version: "2.0"
+      item_count: 16
+    languages:
+      - "fr"
+
+  - name: "ANSSI PRIS (Prestataires de reponse aux incidents)"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/entreprise/qualifications/prestataires-de-services-de-confiance-qualifies/prestataires-de-reponse-aux-incidents-de-securite-pris/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.0"
+    effective_date: "2017-06-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Incident response service provider qualification requirements"
+      version: "2.0"
+      item_count: 15
+    languages:
+      - "fr"
+
+  - name: "ANSSI Guide des bonnes pratiques de l'informatique"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/guide-des-bonnes-pratiques-de-linformatique/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2017-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "12 essential IT security rules for SMEs"
+      version: "1.0"
+      item_count: 12
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations de securite relatives a TLS"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-de-securite-relatives-a-tls/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.2"
+    effective_date: "2020-03-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "TLS deployment security recommendations"
+      version: "1.2"
+      item_count: 12
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations de securite pour la journalisation"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-de-securite-pour-la-journalisation/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2022-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Logging security recommendations"
+      version: "1.0"
+      item_count: 14
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations relatives a l'authentification multifacteur et aux mots de passe"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-relatives-a-lauthentification-multifacteur-et-aux-mots-de-passe/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.0"
+    effective_date: "2021-10-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Password and MFA recommendations"
+      version: "2.0"
+      item_count: 12
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations de securite relatives a Active Directory"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-de-securite-relatives-a-active-directory/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2023-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Active Directory security hardening"
+      version: "1.0"
+      item_count: 14
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations pour les architectures des systemes d'information sensibles"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-pour-les-architectures-des-systemes-dinformation-sensibles-ou-diffusion-restreinte/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.0"
+    effective_date: "2022-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Secure architecture for sensitive information systems"
+      version: "2.0"
+      item_count: 12
+    languages:
+      - "fr"
+
+  - name: "ANSSI Guide de developpement securise / regles de programmation"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/regles-de-programmation-pour-le-developpement-securise-de-logiciels-en-langage-c/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.1"
+    effective_date: "2020-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Secure software development practices"
+      version: "1.1"
+      item_count: 12
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations de securite relatives aux reseaux WiFi"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-de-securite-relatives-aux-reseaux-wifi/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2013-03-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "WiFi network security recommendations"
+      version: "1.0"
+      item_count: 10
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations de securite pour les dispositifs de l'Internet des objets"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-de-securite-pour-les-dispositifs-de-linternet-des-objets/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2021-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "IoT device security recommendations"
+      version: "1.0"
+      item_count: 11
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations pour la mise en place de cloisonnement systeme"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-pour-la-mise-en-place-de-cloisonnement-systeme/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "1.0"
+    effective_date: "2017-12-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "System segmentation recommendations"
+      version: "1.0"
+      item_count: 8
+    languages:
+      - "fr"
+
+  - name: "ANSSI Mecanismes cryptographiques - Regles et recommandations"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/mecanismes-cryptographiques/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.04"
+    effective_date: "2021-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Cryptographic algorithm and agility recommendations"
+      version: "2.04"
+      item_count: 10
+    languages:
+      - "fr"
+
+  - name: "ANSSI Recommandations relatives a l'administration securisee des systemes d'information"
+    authority: "ANSSI"
+    official_url: "https://www.ssi.gouv.fr/guide/recommandations-relatives-a-ladministration-securisee-des-systemes-dinformation/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "3.0"
+    effective_date: "2021-05-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "IS administration security recommendations"
+      version: "3.0"
+      item_count: 11
+    languages:
+      - "fr"
+
+  - name: "LPM - Exigences de cybersecurite des OIV"
+    authority: "Republique francaise / SGDSN / ANSSI"
+    official_url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028338825"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication (Legifrance)"
+      url: null
+      summary: "French law — free to reference"
+    coverage:
+      scope: "Mandatory cybersecurity requirements for critical infrastructure operators"
+      version: "2024"
+      item_count: 16
+    languages:
+      - "fr"
+
+  - name: "NIS2 Transposition francaise"
+    authority: "Republique francaise / ANSSI"
+    official_url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049566498"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2025"
+    effective_date: "2025-01-01"
+    license:
+      type: "Public sector publication (Legifrance)"
+      url: null
+      summary: "French law — free to reference"
+    coverage:
+      scope: "French NIS2 implementation for essential and important entities"
+      version: "2025"
+      item_count: 17
+    languages:
+      - "fr"
+
+  - name: "CNIL - Mesures techniques RGPD"
+    authority: "CNIL"
+    official_url: "https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Technical RGPD implementation measures from CNIL guidance"
+      version: "2024"
+      item_count: 16
+    languages:
+      - "fr"
+
+  - name: "II 901 - Protection des systemes DR"
+    authority: "SGDSN"
+    official_url: "https://www.ssi.gouv.fr/administration/reglementation/protection-des-systemes-dinformations/instruction-interministerielle-n-901/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2015"
+    effective_date: "2015-01-28"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Protection of Diffusion Restreinte classified information systems"
+      version: "2015"
+      item_count: 11
+    languages:
+      - "fr"
+
+  - name: "ACPR - Exigences risques informatiques"
+    authority: "ACPR / Banque de France"
+    official_url: "https://acpr.banque-france.fr/page-sommaire/risques-lies-aux-systemes-dinformation"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "IT risk management for banks and insurance companies"
+      version: "2024"
+      item_count: 13
+    languages:
+      - "fr"
+
+  - name: "DORA - Resilience operationnelle numerique"
+    authority: "ACPR / AMF / Banque de France"
+    official_url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022R2554"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2025"
+    effective_date: "2025-01-17"
+    license:
+      type: "EU public law"
+      url: null
+      summary: "EU regulation — free to reference"
+    coverage:
+      scope: "Digital operational resilience for financial sector"
+      version: "2025"
+      item_count: 13
+    languages:
+      - "fr"
+
+  - name: "DINUM Doctrine d'utilisation du Cloud par l'Etat"
+    authority: "DINUM"
+    official_url: "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2023"
+    effective_date: "2023-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Government cloud doctrine (Cloud de confiance)"
+      version: "2023"
+      item_count: 9
+    languages:
+      - "fr"
+
+  - name: "RGI (Referentiel General d'Interoperabilite)"
+    authority: "DINUM"
+    official_url: "https://www.numerique.gouv.fr/publications/interoperabilite/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2.0"
+    effective_date: "2016-04-20"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Interoperability standards with security requirements"
+      version: "2.0"
+      item_count: 6
+    languages:
+      - "fr"
+
+  - name: "ANS CI-SIS (Cadre d'Interoperabilite des SI de Sante)"
+    authority: "ANS (Agence du Numerique en Sante)"
+    official_url: "https://esante.gouv.fr/produits-services/ci-sis"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "French government publication — free to reference"
+    coverage:
+      scope: "Health IS interoperability security requirements"
+      version: "2024"
+      item_count: 8
+    languages:
+      - "fr"

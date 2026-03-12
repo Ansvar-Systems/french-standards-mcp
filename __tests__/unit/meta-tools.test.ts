@@ -14,7 +14,7 @@ describe('meta-tools', () => {
     expect(result._meta).toBeDefined();
   });
 
-  it('list_sources returns all 6 sources', () => {
+  it('list_sources returns sources including core 6', () => {
     const result = handleListSources();
     const text = result.content[0].text;
     expect(text).toContain('ANSSI-RGS');

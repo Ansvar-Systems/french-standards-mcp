@@ -1,0 +1,150 @@
+{
+  "framework": {
+    "id": "dinum-cloud",
+    "name": "Government Cloud Doctrine (Cloud de confiance)",
+    "name_nl": "Doctrine d'utilisation du cloud par l'Etat (Cloud de confiance)",
+    "issuing_body": "Direction interministerielle du numerique (DINUM)",
+    "version": "2023",
+    "effective_date": "2023-01-01",
+    "scope": "Cloud usage doctrine for French government administrations defining \"Cloud au centre\" strategy",
+    "scope_sectors": [
+      "government"
+    ],
+    "structure_description": "Principles covering cloud-first strategy, data sensitivity classification, SecNumCloud requirement for sensitive data, sovereign cloud requirements, and permitted cloud providers.",
+    "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/",
+    "license": "Public sector publication",
+    "language": "fr"
+  },
+  "controls": [
+    {
+      "control_number": "CLOUD-01",
+      "title": "Cloud-first principle",
+      "title_nl": "Principe cloud d'abord",
+      "description": "Government administrations shall adopt a \"Cloud au centre\" approach for all new projects and digital services.",
+      "description_nl": "Les administrations publiques doivent adopter une approche « Cloud au centre » pour tous les nouveaux projets et services numeriques.",
+      "category": "Principes generaux",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-02",
+      "title": "Data sensitivity classification for cloud",
+      "title_nl": "Classification de la sensibilite des donnees pour le cloud",
+      "description": "Classify data into sensitivity levels: public, ordinary, sensitive, very sensitive. Cloud choice depends on classification.",
+      "description_nl": "Classifier les donnees en niveaux de sensibilite : publiques, ordinaires, sensibles, tres sensibles. Le choix du cloud depend de la classification.",
+      "category": "Classification",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "5.12",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-03",
+      "title": "SecNumCloud for sensitive data",
+      "title_nl": "SecNumCloud pour les donnees sensibles",
+      "description": "Sensitive and very sensitive government data shall only be hosted on SecNumCloud-qualified cloud providers.",
+      "description_nl": "Les donnees gouvernementales sensibles et tres sensibles ne doivent etre hebergees que chez des fournisseurs cloud qualifies SecNumCloud.",
+      "category": "Exigences cloud",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-04",
+      "title": "EU data sovereignty",
+      "title_nl": "Souverainete des donnees UE",
+      "description": "Government data shall be stored and processed within the European Union, by EU-controlled entities.",
+      "description_nl": "Les donnees gouvernementales doivent etre stockees et traitees au sein de l'Union europeenne, par des entites controlees par l'UE.",
+      "category": "Souverainete",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-05",
+      "title": "Protection from non-EU jurisdictions",
+      "title_nl": "Protection contre les juridictions non-UE",
+      "description": "Cloud providers hosting government data shall not be subject to non-EU extraterritorial legislation (e.g., CLOUD Act, FISA).",
+      "description_nl": "Les fournisseurs cloud hebergeant des donnees gouvernementales ne doivent pas etre soumis a des legislations extraterritoriales non-UE (ex : CLOUD Act, FISA).",
+      "category": "Souverainete",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-06",
+      "title": "Interministerial cloud catalog",
+      "title_nl": "Catalogue cloud interministeriel",
+      "description": "Use services from the interministerial cloud catalog (Pi Cloud) for government cloud deployments.",
+      "description_nl": "Utiliser les services du catalogue cloud interministeriel (Pi Cloud) pour les deploiements cloud gouvernementaux.",
+      "category": "Services autorises",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-07",
+      "title": "Reversibility requirement",
+      "title_nl": "Exigence de reversibilite",
+      "description": "All government cloud contracts shall include reversibility provisions ensuring data and service portability.",
+      "description_nl": "Tous les contrats cloud gouvernementaux doivent inclure des provisions de reversibilite assurant la portabilite des donnees et des services.",
+      "category": "Contractuel",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "5.23",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-08",
+      "title": "Multi-cloud architecture",
+      "title_nl": "Architecture multi-cloud",
+      "description": "Government cloud architectures should avoid single-provider lock-in through multi-cloud or hybrid strategies.",
+      "description_nl": "Les architectures cloud gouvernementales doivent eviter le verrouillage mono-fournisseur par des strategies multi-cloud ou hybrides.",
+      "category": "Architecture",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": null,
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    },
+    {
+      "control_number": "CLOUD-09",
+      "title": "Cloud security baseline",
+      "title_nl": "Socle de securite cloud",
+      "description": "Cloud deployments shall implement a security baseline aligned with ANSSI SecNumCloud requirements and RGS.",
+      "description_nl": "Les deploiements cloud doivent implementer un socle de securite aligne sur les exigences SecNumCloud de l'ANSSI et le RGS.",
+      "category": "Securite",
+      "subcategory": null,
+      "level": null,
+      "iso_mapping": "5.1",
+      "implementation_guidance": null,
+      "verification_guidance": null,
+      "source_url": "https://www.numerique.gouv.fr/services/cloud/doctrine/"
+    }
+  ],
+  "metadata": {
+    "ingested_at": "2026-03-12T10:39:25.474Z",
+    "total_controls": 9
+  }
+}

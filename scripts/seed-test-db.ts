@@ -83,6 +83,17 @@ insertFramework.run('anssi-pgssi-s', 'Health IS Security Policy (PGSSI-S)', 'Pol
 
 insertFramework.run('hds', 'Health Data Hosting Certification (HDS)', 'Certification Hebergeurs de Donnees de Sante (HDS)', 'Agence du Numerique en Sante (ANS)', '2024', '2024-01-01', 'Certification for organizations hosting French health data', '["healthcare"]', 'Requirements for physical infrastructure, network, managed hosting, operations, backup, and certification', 'https://esante.gouv.fr/produits-services/hds', 'Public sector publication', 'fr');
 
+// New frameworks (representative samples for development/testing)
+insertFramework.run('anssi-ebios-rm', 'EBIOS Risk Manager', 'EBIOS Risk Manager', 'Agence nationale de la securite des systemes d\'information (ANSSI)', '1.0', '2018-10-01', 'Official French risk analysis methodology', '["government","healthcare","finance","energy","telecom","transport","education","digital_infrastructure"]', '5 workshops for risk analysis', 'https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/', 'Public sector publication', 'fr');
+
+insertFramework.run('lpm-oiv', 'Military Programming Law - OIV Cybersecurity Requirements', 'Loi de Programmation Militaire - Exigences de cybersecurite des OIV', 'Republique francaise / SGDSN / ANSSI', '2024', '2024-01-01', 'Mandatory cybersecurity requirements for Operators of Vital Importance', '["government","energy","telecom","transport","healthcare","finance","water"]', 'Requirements for SIIV identification, security rules, incident notification, audit', 'https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028338825', 'Public sector publication (Legifrance)', 'fr');
+
+insertFramework.run('nis2-fr', 'NIS2 French Transposition', 'Transposition francaise de NIS2', 'Republique francaise / ANSSI', '2025', '2025-01-01', 'French implementation of EU Directive 2022/2555', '["government","energy","telecom","transport","healthcare","finance","water","digital_infrastructure"]', 'Requirements for essential and important entities', 'https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049566498', 'Public sector publication (Legifrance)', 'fr');
+
+insertFramework.run('dora-fr', 'DORA French Implementation', 'Mise en oeuvre francaise de DORA', 'ACPR / AMF / Banque de France', '2025', '2025-01-17', 'Digital operational resilience for financial sector', '["finance"]', 'ICT risk management, incident reporting, resilience testing, third-party risk', 'https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022R2554', 'EU public law', 'fr');
+
+insertFramework.run('acpr-it', 'ACPR IT Risk Requirements', 'Exigences ACPR risques informatiques', 'ACPR / Banque de France', '2024', '2024-01-01', 'IT risk management for banks and insurance companies', '["finance"]', 'IT governance, risk management, cybersecurity, outsourcing, continuity', 'https://acpr.banque-france.fr/page-sommaire/risques-lies-aux-systemes-dinformation', 'Public sector publication', 'fr');
+
 const insertControl = db.prepare(
   'INSERT OR REPLACE INTO controls (id, framework_id, control_number, title, title_nl, description, description_nl, category, subcategory, level, iso_mapping, implementation_guidance, verification_guidance, source_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
@@ -112,6 +123,21 @@ insertControl.run('anssi-pgssi-s:PGSSI-IAM-01', 'anssi-pgssi-s', 'PGSSI-IAM-01',
 
 // HDS sample control
 insertControl.run('hds:HDS-CERT-01', 'hds', 'HDS-CERT-01', 'ISO 27001 certification', 'Certification ISO 27001', 'HDS providers shall hold ISO 27001 certification covering the hosting perimeter.', 'Les hebergeurs HDS doivent detenir la certification ISO 27001 couvrant le perimetre d\'hebergement.', 'Certification', null, null, null, null, null, 'https://esante.gouv.fr/produits-services/hds');
+
+// EBIOS RM sample control
+insertControl.run('anssi-ebios-rm:W1-01', 'anssi-ebios-rm', 'W1-01', 'Define the study scope', 'Definir le cadre de l\'etude', 'Identify the object of the study, its missions, values, and the perimeter of the risk analysis.', 'Identifier l\'objet de l\'etude, ses missions, ses valeurs et le perimetre de l\'analyse de risque.', 'Atelier 1 - Cadrage et socle de securite', 'Definition du perimetre', null, null, null, null, 'https://www.ssi.gouv.fr/guide/la-methode-ebios-risk-manager-le-guide/');
+
+// LPM-OIV sample control
+insertControl.run('lpm-oiv:LPM-01', 'lpm-oiv', 'LPM-01', 'SIIV identification', 'Identification des SIIV', 'OIV shall identify their information systems of vital importance (SIIV) and notify ANSSI.', 'Les OIV doivent identifier leurs systemes d\'information d\'importance vitale (SIIV) et notifier l\'ANSSI.', 'Identification des SIIV', null, null, '5.9', null, null, 'https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000028338825');
+
+// NIS2-FR sample control
+insertControl.run('nis2-fr:NIS2-01', 'nis2-fr', 'NIS2-01', 'Entity registration with ANSSI', 'Enregistrement de l\'entite aupres de l\'ANSSI', 'Essential and important entities shall register with ANSSI.', 'Les entites essentielles et importantes doivent s\'enregistrer aupres de l\'ANSSI.', 'Gouvernance', null, null, null, null, null, 'https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049566498');
+
+// DORA-FR sample control
+insertControl.run('dora-fr:DORA-ICT-01', 'dora-fr', 'DORA-ICT-01', 'ICT risk management framework', 'Cadre de gestion des risques TIC', 'Establish a comprehensive ICT risk management framework approved by the management body.', 'Etablir un cadre complet de gestion des risques TIC approuve par l\'organe de direction.', 'Gestion des risques TIC', null, null, '5.1', null, null, 'https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022R2554');
+
+// ACPR sample control
+insertControl.run('acpr-it:ACPR-GOV-01', 'acpr-it', 'ACPR-GOV-01', 'IT governance framework', 'Cadre de gouvernance informatique', 'Institutions shall have an IT governance framework with clear roles and reporting.', 'Les institutions doivent disposer d\'un cadre de gouvernance informatique avec des roles clairs et un reporting.', 'Gouvernance IT', null, null, '5.1', null, null, 'https://acpr.banque-france.fr/page-sommaire/risques-lies-aux-systemes-dinformation');
 
 db.exec("INSERT INTO controls_fts(controls_fts) VALUES('rebuild')");
 
